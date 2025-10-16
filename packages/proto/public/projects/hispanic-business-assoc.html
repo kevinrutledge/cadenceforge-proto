@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hispanic Business Association Platform - Cadence Forge</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">← Home</a> |
+        <a href="/projects.html">← All Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <header>
+          <h1>Hispanic Business Association Platform</h1>
+          <p>Web application for local business community.</p>
+
+          <dl>
+            <dt>Type:</dt>
+            <dd><a href="/projects.html?type=hack4impact">Hack4Impact</a></dd>
+
+            <dt>Role:</dt>
+            <dd>Developer</dd>
+
+            <dt>Timeline:</dt>
+            <dd>September 2024 - June 2025</dd>
+
+            <dt>Stack:</dt>
+            <dd>Next.js, TypeScript, MongoDB, AWS S3, Clerk</dd>
+
+            <dt>Status:</dt>
+            <dd>Completed</dd>
+          </dl>
+        </header>
+
+        <section>
+          <h2>The Problem</h2>
+          <p>
+            The Hispanic Business Association needed a system for managing
+            member businesses. Business owners should be able to update their
+            information. Admins needed to review and approve changes before they
+            went live. Members needed a directory to find other businesses.
+          </p>
+          <p>
+            The existing process used spreadsheets and email. Updates were slow.
+            Changes often got lost. There was no audit trail.
+          </p>
+        </section>
+
+        <section>
+          <h2>What I Built</h2>
+
+          <h3>Admin Request Management</h3>
+          <p>
+            Business owners submit change requests. Admins see them in a
+            dashboard. They can approve or deny with a message. The system sends
+            email notifications. Approved changes update the business profile
+            immediately. Request history is stored for 90 days, then
+            automatically cleaned up using MongoDB TTL indexes.
+          </p>
+
+          <h3>Business Management Interface</h3>
+          <p>
+            Admin dashboard shows all businesses. Click into a business to see
+            details. Edit membership dates, track payments. Changes update
+            immediately using SWR cache invalidation. No page reloads needed.
+          </p>
+
+          <h3>Media Handling</h3>
+          <p>
+            Businesses can upload logos and banner images. Files go to AWS S3.
+            The approval interface shows before and after images when changes
+            are requested. Fallback images handle missing or broken uploads.
+          </p>
+
+          <h3>API and Database</h3>
+          <p>
+            REST API endpoints for request approval, denial, history. MongoDB
+            schemas for request tracking with TTL-based expiration. Migrated
+            legacy address model to support separate physical and mailing
+            addresses.
+          </p>
+        </section>
+
+        <section>
+          <h2>Technical Decisions</h2>
+          <p>
+            <strong>Next.js App Router:</strong> Server and client rendering in
+            one framework. API routes eliminated the need for a separate
+            backend.
+          </p>
+          <p>
+            <strong>MongoDB with TTL indexes:</strong> Request history
+            automatically expires after 90 days. No manual cleanup jobs needed.
+          </p>
+          <p>
+            <strong>SWR for cache management:</strong> Optimistic updates and
+            automatic revalidation. UI stays responsive even with slow network.
+          </p>
+          <p>
+            <strong>Clerk for auth:</strong> User management handled by a
+            service. We didn't have to build login, password reset, or session
+            management.
+          </p>
+        </section>
+
+        <section>
+          <h2>What I Learned</h2>
+          <p>
+            Real projects have constraints that coursework doesn't. The
+            nonprofit had a timeline. Features needed to work, not just
+            demonstrate concepts. Code had to be maintainable because other
+            developers would work on it after us.
+          </p>
+          <p>
+            Explaining technical decisions to non-technical stakeholders is
+            different from explaining them to other developers. The staff didn't
+            care about our MongoDB schemas. They cared whether admins could
+            approve requests easily.
+          </p>
+          <p>
+            Also, accepting most of the development tickets meant I learned the
+            full stack quickly. But it also meant some of my classes dropped
+            from A to B that quarter because I prioritized the project. I'd make
+            the same choice again. The nonprofit was counting on us.
+          </p>
+        </section>
+
+        <footer>
+          <nav>
+            <h3>Related Writing</h3>
+            <ul>
+              <li>
+                <a href="/writing/hack4impact-experience.html"
+                  >Building for Nonprofits</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

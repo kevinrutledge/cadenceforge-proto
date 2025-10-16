@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Package locks (keep workspace versions in sync manually)
+package-lock.json
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
