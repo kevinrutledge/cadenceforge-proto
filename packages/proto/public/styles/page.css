@@ -112,16 +112,31 @@ nav a:hover {
   opacity: 1;
 }
 
-article > ul {
+main > section > ul {
   list-style: none;
 }
 
-article > ul > li {
-  margin-bottom: var(--space-10);
+main > section > ul > li {
+  margin-bottom: var(--space-6);
+}
+
+main > section > ul > li > article {
+  padding: var(--space-6);
+  background: white;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-midori);
+  border-radius: 4px;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+main > section > ul > li > article:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--color-midori-dark);
 }
 
 article h3 {
   font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
 }
 
 article h3 a {
@@ -132,31 +147,61 @@ article h3 a:hover {
   color: var(--color-midori);
 }
 
+article > header {
+  padding: 0;
+  margin-bottom: var(--space-8);
+}
+
+article > header h1 {
+  margin-bottom: var(--space-3);
+}
+
+article > header p {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-6);
+}
+
 dl {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4) var(--space-8);
+  gap: var(--space-3) var(--space-6);
   margin: var(--space-4) 0;
+  font-size: var(--text-sm);
 }
 
 dt {
   font-weight: var(--weight-semibold);
-  font-size: var(--text-sm);
   color: var(--color-text-secondary);
+  min-width: 80px;
 }
 
 dd {
-  font-size: var(--text-sm);
+  color: var(--color-text);
 }
 
 dd a {
+  display: inline-block;
   background-color: rgba(42, 96, 59, 0.1);
   padding: var(--space-2) var(--space-3);
   border-radius: 4px;
-  font-size: var(--text-sm);
   transition: background-color var(--transition);
 }
 
 dd a:hover {
   background-color: rgba(42, 96, 59, 0.2);
+}
+
+dd ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+svg.icon {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  fill: currentColor;
 }
