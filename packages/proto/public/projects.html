@@ -11,71 +11,121 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a>
-      </nav>
-      <h1>Projects</h1>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html" class="active">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Projects</div>
+        <h1>Projects</h1>
+        <p>
+          Web applications and development work from Hack4Impact and personal
+          exploration.
+        </p>
+      </div>
+    </div>
+
     <main>
-      <section>
-        <h2>All Projects</h2>
-        <ul>
-          <li>
-            <article>
-              <h3>
-                <a href="/projects/hispanic-business-assoc.html"
-                  >Hispanic Business Association Platform</a
-                >
-              </h3>
-              <p>
-                Web application for local business community. Admin approval
-                workflows, membership management, business profiles.
-              </p>
-              <dl>
-                <dt>Type:</dt>
-                <dd>
-                  <a href="/projects.html?type=hack4impact">Hack4Impact</a>
-                </dd>
-                <dt>Role:</dt>
-                <dd>Developer</dd>
-                <dt>Stack:</dt>
-                <dd>Next.js, TypeScript, MongoDB, AWS S3</dd>
-                <dt>Status:</dt>
-                <dd>Completed (Fall 2024)</dd>
-              </dl>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>
-                <a href="/projects/portfolio-site.html">Portfolio Website</a>
-              </h3>
-              <p>
-                Personal portfolio built during Hack4Impact bootcamp. Blog
-                functionality, project showcase, resume section.
-              </p>
-              <dl>
-                <dt>Type:</dt>
-                <dd>
-                  <a href="/projects.html?type=bootcamp">Bootcamp Project</a>
-                </dd>
-                <dt>Role:</dt>
-                <dd>Solo Developer</dd>
-                <dt>Stack:</dt>
-                <dd>Next.js, TypeScript, MongoDB</dd>
-                <dt>Status:</dt>
-                <dd>Completed (Fall 2024)</dd>
-              </dl>
-            </article>
-          </li>
-        </ul>
-      </section>
+      <div class="container">
+        <section>
+          <h2>All Projects</h2>
+          <ul>
+            <li>
+              <article data-category="cs">
+                <h3>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </h3>
+                <p>
+                  Web application for local business community. Admin approval
+                  workflows, membership management, business profiles.
+                </p>
+                <dl>
+                  <dt>Type:</dt>
+                  <dd>
+                    <a href="/projects.html?type=hack4impact">Hack4Impact</a>
+                  </dd>
+                  <dt>Role:</dt>
+                  <dd>Developer</dd>
+                  <dt>Stack:</dt>
+                  <dd>Next.js, TypeScript, MongoDB, AWS S3</dd>
+                  <dt>Status:</dt>
+                  <dd>Completed (Fall 2024)</dd>
+                </dl>
+              </article>
+            </li>
+            <li>
+              <article data-category="cs">
+                <h3>
+                  <a href="/projects/portfolio-site.html">Portfolio Website</a>
+                </h3>
+                <p>
+                  Personal portfolio built during Hack4Impact bootcamp. Blog
+                  functionality, project showcase, resume section.
+                </p>
+                <dl>
+                  <dt>Type:</dt>
+                  <dd>
+                    <a href="/projects.html?type=bootcamp">Bootcamp Project</a>
+                  </dd>
+                  <dt>Role:</dt>
+                  <dd>Solo Developer</dd>
+                  <dt>Stack:</dt>
+                  <dd>Next.js, TypeScript, MongoDB</dd>
+                  <dt>Status:</dt>
+                  <dd>Completed (Fall 2024)</dd>
+                </dl>
+              </article>
+            </li>
+          </ul>
+        </section>
+      </div>
     </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

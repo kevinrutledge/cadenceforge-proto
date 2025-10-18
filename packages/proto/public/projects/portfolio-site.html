@@ -11,177 +11,210 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a> |
-        <a href="/projects.html">← All Projects</a>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html" class="active">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <article>
-        <header>
-          <h1>Portfolio Website</h1>
-          <p>Personal portfolio built during Hack4Impact bootcamp.</p>
+      <div class="container">
+        <article>
+          <header>
+            <h1>Portfolio Website</h1>
+            <p>Personal portfolio built during Hack4Impact bootcamp.</p>
 
-          <dl>
-            <dt>Type:</dt>
-            <dd><a href="/projects.html?type=bootcamp">Bootcamp Project</a></dd>
+            <dl>
+              <dt>Type:</dt>
+              <dd>
+                <a href="/projects.html?type=bootcamp">Bootcamp Project</a>
+              </dd>
+              <dt>Date:</dt>
+              <dd><time datetime="2024-09">September 2024</time></dd>
+              <dt>Tech Stack:</dt>
+              <dd>Next.js, TypeScript, MongoDB, GitHub Pages</dd>
+              <dt>Status:</dt>
+              <dd>Completed</dd>
+            </dl>
+          </header>
 
-            <dt>Date:</dt>
-            <dd><time datetime="2024-09">September 2024</time></dd>
+          <section>
+            <h2>Context</h2>
+            <p>
+              Before getting assigned to a real nonprofit project, Hack4Impact
+              runs a bootcamp where new members learn the tech stack. The final
+              assignment was building a personal portfolio site. It needed a
+              welcome page, resume section, blog functionality, project
+              showcase, and contact form.
+            </p>
+            <p>
+              This was my first time using Next.js App Router or TypeScript. I'd
+              worked with React before, but not this specific setup. MongoDB was
+              new too.
+            </p>
+          </section>
 
-            <dt>Tech Stack:</dt>
-            <dd>
+          <section>
+            <h2>What I Built</h2>
+
+            <h3>Welcome Page</h3>
+            <p>
+              Landing page with brief introduction and navigation to other
+              sections. Nothing fancy. Just needed to be functional and clear.
+            </p>
+
+            <h3>Resume Section</h3>
+            <p>
+              Education, work experience, skills. Static content pulled from a
+              data file. Could have made it dynamic with a CMS, but that seemed
+              like overengineering for a bootcamp project.
+            </p>
+
+            <h3>Blog Functionality</h3>
+            <p>
+              This is where MongoDB came in. Blog posts stored in the database
+              with basic CRUD operations. Could create, edit, and delete posts
+              through an admin interface. The blog itself just displayed them in
+              reverse chronological order.
+            </p>
+            <p>
+              The admin interface was behind authentication. Used NextAuth for
+              that. Worked fine for a bootcamp project, though I learned later
+              there are simpler approaches for portfolio sites.
+            </p>
+
+            <h3>Project Showcase</h3>
+            <p>
+              Grid of project cards with descriptions, tech stacks, and links.
+              Also pulled from MongoDB. Probably didn't need a database for this
+              either, but the bootcamp required demonstrating database
+              integration.
+            </p>
+
+            <h3>Contact Form</h3>
+            <p>
+              Form submissions sent to my email via an API route. Used
+              nodemailer. Spent more time debugging email delivery than I
+              expected. Learned about SPF records and DKIM signatures in the
+              process.
+            </p>
+          </section>
+
+          <section>
+            <h2>Deployment</h2>
+            <p>
+              Had to deploy to GitHub Pages as part of the bootcamp
+              requirements. This created some complications because GitHub Pages
+              is designed for static sites, not Next.js applications with API
+              routes and database connections.
+            </p>
+            <p>
+              Ended up exporting a static version for GitHub Pages and hosting
+              the API routes separately. Not ideal, but it met the assignment
+              requirements.
+            </p>
+          </section>
+
+          <section>
+            <h2>What I Learned</h2>
+            <p>
+              The technical skills were useful. Learning Next.js App Router,
+              TypeScript patterns, MongoDB integration. But the more valuable
+              lesson was about project scope.
+            </p>
+            <p>
+              A portfolio site doesn't need a database. Static generation with
+              markdown files would work better for blog posts. The admin
+              interface was unnecessary complexity. I built these things because
+              the bootcamp required demonstrating specific technologies, not
+              because the project needed them.
+            </p>
+            <p>
+              This matters when building actual applications. Technical
+              decisions should serve the project's needs, not demonstrate your
+              knowledge of particular tools. The Hispanic Business Association
+              project needed a database because the data was dynamic and needed
+              admin management. A personal portfolio usually doesn't.
+            </p>
+          </section>
+
+          <section>
+            <h2>Would I Build It Differently?</h2>
+            <p>
+              For a real portfolio site, yes. Static generation with MDX for
+              blog posts. No database. Simpler deployment. But for a bootcamp
+              learning project, the overengineering was fine. The point was
+              learning the tools, not building the perfect portfolio.
+            </p>
+            <p>
+              The project served its purpose. I learned the stack well enough to
+              contribute effectively to the Hispanic Business Association
+              platform. That was the goal.
+            </p>
+          </section>
+
+          <footer>
+            <nav>
+              <h3>Related</h3>
               <ul>
-                <li>Next.js</li>
-                <li>TypeScript</li>
-                <li>MongoDB</li>
-                <li>GitHub Pages</li>
+                <li>
+                  <a href="/writing/hack4impact-experience.html"
+                    >Building for Nonprofits</a
+                  >
+                </li>
+                <li>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </li>
               </ul>
-            </dd>
-
-            <dt>Status:</dt>
-            <dd>Completed</dd>
-          </dl>
-        </header>
-
-        <section>
-          <h2>Context</h2>
-          <p>
-            Before getting assigned to a real nonprofit project, Hack4Impact
-            runs a bootcamp where new members learn the tech stack. The final
-            assignment was building a personal portfolio site. It needed a
-            welcome page, resume section, blog functionality, project showcase,
-            and contact form.
-          </p>
-          <p>
-            This was my first time using Next.js App Router or TypeScript. I'd
-            worked with React before, but not this specific setup. MongoDB was
-            new too.
-          </p>
-        </section>
-
-        <section>
-          <h2>What I Built</h2>
-
-          <h3>Welcome Page</h3>
-          <p>
-            Landing page with brief introduction and navigation to other
-            sections. Nothing fancy. Just needed to be functional and clear.
-          </p>
-
-          <h3>Resume Section</h3>
-          <p>
-            Education, work experience, skills. Static content pulled from a
-            data file. Could have made it dynamic with a CMS, but that seemed
-            like overengineering for a bootcamp project.
-          </p>
-
-          <h3>Blog Functionality</h3>
-          <p>
-            This is where MongoDB came in. Blog posts stored in the database
-            with basic CRUD operations. Could create, edit, and delete posts
-            through an admin interface. The blog itself just displayed them in
-            reverse chronological order.
-          </p>
-          <p>
-            The admin interface was behind authentication. Used NextAuth for
-            that. Worked fine for a bootcamp project, though I learned later
-            there are simpler approaches for portfolio sites.
-          </p>
-
-          <h3>Project Showcase</h3>
-          <p>
-            Grid of project cards with descriptions, tech stacks, and links.
-            Also pulled from MongoDB. Probably didn't need a database for this
-            either, but the bootcamp required demonstrating database
-            integration.
-          </p>
-
-          <h3>Contact Form</h3>
-          <p>
-            Form submissions sent to my email via an API route. Used nodemailer.
-            Spent more time debugging email delivery than I expected. Learned
-            about SPF records and DKIM signatures in the process.
-          </p>
-        </section>
-
-        <section>
-          <h2>Deployment</h2>
-          <p>
-            Had to deploy to GitHub Pages as part of the bootcamp requirements.
-            This created some complications because GitHub Pages is designed for
-            static sites, not Next.js applications with API routes and database
-            connections.
-          </p>
-          <p>
-            Ended up exporting a static version for GitHub Pages and hosting the
-            API routes separately. Not ideal, but it met the assignment
-            requirements.
-          </p>
-        </section>
-
-        <section>
-          <h2>What I Learned</h2>
-          <p>
-            The technical skills were useful. Learning Next.js App Router,
-            TypeScript patterns, MongoDB integration. But the more valuable
-            lesson was about project scope.
-          </p>
-          <p>
-            A portfolio site doesn't need a database. Static generation with
-            markdown files would work better for blog posts. The admin interface
-            was unnecessary complexity. I built these things because the
-            bootcamp required demonstrating specific technologies, not because
-            the project needed them.
-          </p>
-          <p>
-            This matters when building actual applications. Technical decisions
-            should serve the project's needs, not demonstrate your knowledge of
-            particular tools. The Hispanic Business Association project needed a
-            database because the data was dynamic and needed admin management. A
-            personal portfolio usually doesn't.
-          </p>
-        </section>
-
-        <section>
-          <h2>Would I Build It Differently?</h2>
-          <p>
-            For a real portfolio site, yes. Static generation with MDX for blog
-            posts. No database. Simpler deployment. But for a bootcamp learning
-            project, the overengineering was fine. The point was learning the
-            tools, not building the perfect portfolio.
-          </p>
-          <p>
-            The project served its purpose. I learned the stack well enough to
-            contribute effectively to the Hispanic Business Association
-            platform. That was the goal.
-          </p>
-        </section>
-
-        <footer>
-          <nav>
-            <h3>Related</h3>
-            <ul>
-              <li>
-                <a href="/writing/hack4impact-experience.html"
-                  >Building for Nonprofits</a
-                >
-              </li>
-              <li>
-                <a href="/projects/hispanic-business-assoc.html"
-                  >Hispanic Business Association Platform</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </footer>
-      </article>
+            </nav>
+          </footer>
+        </article>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

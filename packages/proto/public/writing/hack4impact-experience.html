@@ -11,141 +11,184 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a> |
-        <a href="/writing.html">← All Writing</a>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html" class="active">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <article>
-        <header>
-          <h1>Building for Nonprofits</h1>
-          <p>What I learned as a developer at Hack4Impact.</p>
+      <div class="container">
+        <article>
+          <header>
+            <h1>Building for Nonprofits</h1>
+            <p>What I learned as a developer at Hack4Impact.</p>
 
-          <dl>
-            <dt>Published:</dt>
-            <dd><time datetime="2025-01">January 2025</time></dd>
+            <dl>
+              <dt>Published:</dt>
+              <dd><time datetime="2025-01">January 2025</time></dd>
 
-            <dt>Categories:</dt>
-            <dd>
-              <a href="/writing.html?category=cs">Computer Science</a>,
-              <a href="/writing.html?category=experience">Experience</a>
-            </dd>
-          </dl>
-        </header>
+              <dt>Categories:</dt>
+              <dd>
+                <a href="/writing.html?category=cs">Computer Science</a>,
+                <a href="/writing.html?category=experience">Experience</a>
+              </dd>
+            </dl>
+          </header>
 
-        <section>
-          <h2>The Assignment</h2>
-          <p>
-            Fall 2024, first year back at Cal Poly. I joined Hack4Impact and got
-            assigned to build a web application for the Hispanic Business
-            Association. The stack was Next.js, TypeScript, MongoDB. I'd used
-            some of these before. Others were new.
-          </p>
-          <p>
-            The project had designated tech leads. They were learning how to
-            lead while also learning the stack. I was one of the developers. But
-            as the project went on, I found myself taking most of the tickets
-            and writing most of the code.
-          </p>
-        </section>
+          <section>
+            <h2>The Assignment</h2>
+            <p>
+              Fall 2024, first year back at Cal Poly. I joined Hack4Impact and
+              got assigned to build a web application for the Hispanic Business
+              Association. The stack was Next.js, TypeScript, MongoDB. I'd used
+              some of these before. Others were new.
+            </p>
+            <p>
+              The project had designated tech leads. They were learning how to
+              lead while also learning the stack. I was one of the developers.
+              But as the project went on, I found myself taking most of the
+              tickets and writing most of the code.
+            </p>
+          </section>
 
-        <section>
-          <h2>The Work</h2>
-          <p>
-            The Hispanic Business Association needed a system for managing
-            business profiles and membership. Businesses could update their
-            information. Admins could review and approve changes. Members needed
-            a way to find and connect with other businesses.
-          </p>
-          <p>
-            I built the admin approval system. Request cards, approval
-            workflows, email notifications. The business detail pages with
-            membership tracking. The API endpoints for updates and approvals.
-            AWS S3 integration for logo uploads. MongoDB schemas for request
-            history with TTL-based cleanup.
-          </p>
-          <p>
-            Each feature required understanding how the pieces connected.
-            Frontend forms to API routes to database updates to email triggers.
-            Then back through the same chain when the admin responded.
-          </p>
-        </section>
+          <section>
+            <h2>The Work</h2>
+            <p>
+              The Hispanic Business Association needed a system for managing
+              business profiles and membership. Businesses could update their
+              information. Admins could review and approve changes. Members
+              needed a way to find and connect with other businesses.
+            </p>
+            <p>
+              I built the admin approval system. Request cards, approval
+              workflows, email notifications. The business detail pages with
+              membership tracking. The API endpoints for updates and approvals.
+              AWS S3 integration for logo uploads. MongoDB schemas for request
+              history with TTL-based cleanup.
+            </p>
+            <p>
+              Each feature required understanding how the pieces connected.
+              Frontend forms to API routes to database updates to email
+              triggers. Then back through the same chain when the admin
+              responded.
+            </p>
+          </section>
 
-        <section>
-          <h2>What This Cost</h2>
-          <p>
-            I participated in all technical meetings to explain implementation
-            details. Answered questions about the codebase. Reviewed other
-            developers' work. Some of my classes dropped from A to B that
-            quarter because I prioritized the nonprofit project.
-          </p>
-          <p>
-            I could have done less. Let the project struggle more. Focused only
-            on my coursework. But the nonprofit was counting on us to deliver
-            something functional. That felt more important than the difference
-            between an A and a B in a class I was passing anyway.
-          </p>
-        </section>
+          <section>
+            <h2>What This Cost</h2>
+            <p>
+              I participated in all technical meetings to explain implementation
+              details. Answered questions about the codebase. Reviewed other
+              developers' work. Some of my classes dropped from A to B that
+              quarter because I prioritized the nonprofit project.
+            </p>
+            <p>
+              I could have done less. Let the project struggle more. Focused
+              only on my coursework. But the nonprofit was counting on us to
+              deliver something functional. That felt more important than the
+              difference between an A and a B in a class I was passing anyway.
+            </p>
+          </section>
 
-        <section>
-          <h2>Tech Lead Now</h2>
-          <p>
-            I'm a Tech Lead for this year's projects. Leading a team building
-            for a different nonprofit. The goal is to create an environment
-            where developers don't have to struggle with unclear direction or
-            figure everything out themselves.
-          </p>
-          <p>
-            I know what it's like to be on a team where the technical leadership
-            is still learning. It's fine—everyone has to learn somewhere. But it
-            means developers either step up or the project suffers. I stepped
-            up. Now I want to build something where that's less necessary.
-          </p>
-        </section>
+          <section>
+            <h2>Tech Lead Now</h2>
+            <p>
+              I'm a Tech Lead for this year's projects. Leading a team building
+              for a different nonprofit. The goal is to create an environment
+              where developers don't have to struggle with unclear direction or
+              figure everything out themselves.
+            </p>
+            <p>
+              I know what it's like to be on a team where the technical
+              leadership is still learning. It's fine—everyone has to learn
+              somewhere. But it means developers either step up or the project
+              suffers. I stepped up. Now I want to build something where that's
+              less necessary.
+            </p>
+          </section>
 
-        <section>
-          <h2>What Nonprofit Work Teaches</h2>
-          <p>
-            Real users with real needs. Actual deadlines. Code that someone else
-            will maintain. These constraints are different from coursework or
-            personal projects.
-          </p>
-          <p>
-            In coursework, you can cut corners because only the grade matters.
-            In personal projects, you can abandon things when they get boring.
-            With a nonprofit client, you commit to delivering something
-            functional. That changes how you approach technical decisions.
-          </p>
-          <p>
-            Also, explaining technical concepts to non-technical stakeholders is
-            its own skill. The Hispanic Business Association staff didn't care
-            about our MongoDB schemas or API architecture. They cared whether
-            businesses could update their profiles and admins could approve
-            changes. Learning to translate between technical implementation and
-            user-facing functionality matters more than I expected.
-          </p>
-        </section>
+          <section>
+            <h2>What Nonprofit Work Teaches</h2>
+            <p>
+              Real users with real needs. Actual deadlines. Code that someone
+              else will maintain. These constraints are different from
+              coursework or personal projects.
+            </p>
+            <p>
+              In coursework, you can cut corners because only the grade matters.
+              In personal projects, you can abandon things when they get boring.
+              With a nonprofit client, you commit to delivering something
+              functional. That changes how you approach technical decisions.
+            </p>
+            <p>
+              Also, explaining technical concepts to non-technical stakeholders
+              is its own skill. The Hispanic Business Association staff didn't
+              care about our MongoDB schemas or API architecture. They cared
+              whether businesses could update their profiles and admins could
+              approve changes. Learning to translate between technical
+              implementation and user-facing functionality matters more than I
+              expected.
+            </p>
+          </section>
 
-        <footer>
-          <nav>
-            <h3>Related</h3>
-            <ul>
-              <li>
-                <a href="/projects/hispanic-business-assoc.html"
-                  >Hispanic Business Association Platform</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </footer>
-      </article>
+          <footer>
+            <nav>
+              <h3>Related</h3>
+              <ul>
+                <li>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </article>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

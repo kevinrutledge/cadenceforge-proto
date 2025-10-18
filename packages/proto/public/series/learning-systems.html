@@ -11,78 +11,117 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a> |
-        <a href="/writing.html">← All Writing</a>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <article>
-        <header>
-          <h1>Learning Systems</h1>
-          <p>
-            Applying athletic training methodology to computer science
-            education.
-          </p>
+      <div class="container">
+        <article>
+          <header>
+            <h1>Learning Systems</h1>
+            <p>
+              Applying athletic training methodology to computer science
+              education.
+            </p>
 
-          <dl>
-            <dt>Status:</dt>
-            <dd>In Progress</dd>
+            <dl>
+              <dt>Status:</dt>
+              <dd><span class="status-badge ongoing">In Progress</span></dd>
 
-            <dt>Posts:</dt>
-            <dd>3 planned, 1 published</dd>
-          </dl>
-        </header>
+              <dt>Posts:</dt>
+              <dd>3 planned, 1 published</dd>
+            </dl>
+          </header>
 
-        <section>
-          <h2>About This Series</h2>
-          <p>
-            I spent years training as a track athlete, learning how to break
-            down complex movements into drillable components. That same
-            systematic approach applies to learning algorithms, system design,
-            and technical concepts. This series explores how athletic
-            methodology translates to computer science education.
-          </p>
-        </section>
+          <section>
+            <h2>About This Series</h2>
+            <p>
+              I spent years training as a track athlete, learning how to break
+              down complex movements into drillable components. That same
+              systematic approach applies to learning algorithms, system design,
+              and technical concepts. This series explores how athletic
+              methodology translates to computer science education.
+            </p>
+          </section>
 
-        <section>
-          <h2>Posts in This Series</h2>
-          <ol>
-            <li>
-              <article>
-                <h3>
-                  <a href="/writing/systematic-learning.html"
-                    >Systematic Learning: From Track to Algorithms</a
-                  >
-                </h3>
-                <p>
-                  Breaking down triple jump technique taught me how to approach
-                  dynamic programming.
-                </p>
-                <p><time datetime="2025-01">January 2025</time></p>
-              </article>
-            </li>
-            <li>
-              <article>
-                <h3>Deliberate Practice in Code</h3>
-                <p>Coming soon</p>
-              </article>
-            </li>
-            <li>
-              <article>
-                <h3>Iteration and Feedback Loops</h3>
-                <p>Coming soon</p>
-              </article>
-            </li>
-          </ol>
-        </section>
-      </article>
+          <section>
+            <h2>Posts in This Series</h2>
+            <ol>
+              <li>
+                <article data-category="methodology">
+                  <h3>
+                    <a href="/writing/systematic-learning.html"
+                      >Systematic Learning: From Track to Algorithms</a
+                    >
+                  </h3>
+                  <p>
+                    Breaking down triple jump technique taught me how to
+                    approach dynamic programming.
+                  </p>
+                  <p><time datetime="2025-01">January 2025</time></p>
+                </article>
+              </li>
+              <li>
+                <article data-category="methodology">
+                  <h3>Deliberate Practice in Code</h3>
+                  <p>Coming soon</p>
+                </article>
+              </li>
+              <li>
+                <article data-category="methodology">
+                  <h3>Iteration and Feedback Loops</h3>
+                  <p>Coming soon</p>
+                </article>
+              </li>
+            </ol>
+          </section>
+        </article>
+      </div>
     </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

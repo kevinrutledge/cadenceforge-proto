@@ -11,76 +11,126 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html" class="active">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <article>
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / About</div>
         <h1>About</h1>
+        <p>
+          Computer science student at Cal Poly. Track athlete. Systematic
+          thinker.
+        </p>
+      </div>
+    </div>
 
-        <section>
-          <h2>Current</h2>
-          <p>
-            I'm a computer science student at Cal Poly San Luis Obispo,
-            graduating in 2026. I'm currently Tech Lead at Hack4Impact, where I
-            lead development teams building web applications for nonprofit
-            organizations.
-          </p>
-        </section>
+    <main>
+      <div class="container">
+        <article>
+          <section>
+            <h2>Current</h2>
+            <p>
+              I'm a computer science student at Cal Poly San Luis Obispo,
+              graduating in 2026. I'm currently Tech Lead at Hack4Impact, where
+              I lead development teams building web applications for nonprofit
+              organizations.
+            </p>
+          </section>
 
-        <section>
-          <h2>Background</h2>
-          <p>
-            I was born in Campbell, California in 1989. Vietnamese mother,
-            Irish-English father. Grew up in Los Gatos. Sports were always
-            easier than sitting in classrooms.
-          </p>
-          <p>
-            I competed in track and field through high school. Long jump, high
-            jump, triple jump. Made it to state runner-up in long jump my senior
-            year. Got recruited to Cal Poly for track in 2008.
-          </p>
-          <p>
-            Dropped out after freshman year. The engineering coursework was
-            harder than I expected, and I didn't know how to study. Spent the
-            next 15 years working various jobs, coaching track, competing in
-            ballroom dancing, and eventually figuring out how to approach
-            academics systematically.
-          </p>
-          <p>
-            Came back to Cal Poly in 2024. Made Dean's List Fall quarter.
-            Graduating 2026.
-          </p>
-        </section>
+          <section>
+            <h2>Background</h2>
+            <p>
+              I was born in Campbell, California in 1989. Vietnamese mother,
+              Irish-English father. Grew up in Los Gatos. Sports were always
+              easier than sitting in classrooms.
+            </p>
+            <p>
+              I competed in track and field through high school. Long jump, high
+              jump, triple jump. Made it to state runner-up in long jump my
+              senior year. Got recruited to Cal Poly for track in 2008.
+            </p>
+            <p>
+              Dropped out after freshman year. The engineering coursework was
+              harder than I expected, and I didn't know how to study. Spent the
+              next 15 years working various jobs, coaching track, competing in
+              ballroom dancing, and eventually figuring out how to approach
+              academics systematically.
+            </p>
+            <p>
+              Came back to Cal Poly in 2024. Made Dean's List Fall quarter.
+              Graduating 2026.
+            </p>
+          </section>
 
-        <section>
-          <h2>The Name</h2>
-          <p>
-            Cadence refers to rhythm and systematic repetition. Forge refers to
-            building through sustained effort. Track training taught me that
-            complex skills can be mastered through methodical breakdown and
-            practice. That same approach applies to algorithms, system design,
-            and technical problem-solving.
-          </p>
-        </section>
+          <section>
+            <h2>The Name</h2>
+            <p>
+              Cadence refers to rhythm and systematic repetition. Forge refers
+              to building through sustained effort. Track training taught me
+              that complex skills can be mastered through methodical breakdown
+              and practice. That same approach applies to algorithms, system
+              design, and technical problem-solving.
+            </p>
+          </section>
 
-        <section>
-          <h2>What I Write About</h2>
-          <ul>
-            <li>Computer science and software development</li>
-            <li>Learning methodology and systematic skill development</li>
-            <li>Non-linear career paths</li>
-            <li>Hack4Impact project work</li>
-          </ul>
-        </section>
-      </article>
+          <section>
+            <h2>What I Write About</h2>
+            <ul>
+              <li>Computer science and software development</li>
+              <li>Learning methodology and systematic skill development</li>
+              <li>Non-linear career paths</li>
+              <li>Hack4Impact project work</li>
+            </ul>
+          </section>
+        </article>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

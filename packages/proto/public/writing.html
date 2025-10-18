@@ -11,88 +11,135 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">← Home</a>
-      </nav>
-      <h1>Writing</h1>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/writing.html" class="active">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Writing</div>
+        <h1>Writing</h1>
+        <p>Essays on systematic learning, computer science, and methodology.</p>
+      </div>
+    </div>
+
     <main>
-      <section>
-        <h2>All Posts</h2>
-        <ul>
-          <li>
-            <article>
-              <h3>
-                <a href="/writing/systematic-learning.html">
-                  Systematic Learning: From Track to Algorithms
-                  <svg class="icon">
-                    <use href="/icons/ui.svg#icon-arrow-right" />
-                  </svg>
-                </a>
-              </h3>
-              <p>
-                Breaking down triple jump technique taught me how to approach
-                dynamic programming.
-              </p>
-              <dl>
-                <dt>Date:</dt>
-                <dd><time datetime="2025-01">January 2025</time></dd>
-                <dt>Categories:</dt>
-                <dd>Methodology, Computer Science</dd>
-                <dt>Series:</dt>
-                <dd>
-                  <a href="/series/learning-systems.html">Learning Systems</a>
-                </dd>
-              </dl>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>
-                <a href="/writing/return-to-calpoly.html"
-                  >The Return to Cal Poly</a
-                >
-              </h3>
-              <p>
-                Dropped out in 2008. Back in 2024 with a different approach.
-              </p>
-              <dl>
-                <dt>Date:</dt>
-                <dd><time datetime="2024-12">December 2024</time></dd>
-                <dt>Categories:</dt>
-                <dd>Personal</dd>
-                <dt>Series:</dt>
-                <dd>
-                  <a href="/series/the-return.html">The Return</a> (Part 1 of
-                  series)
-                </dd>
-              </dl>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>
-                <a href="/writing/hack4impact-experience.html"
-                  >Building for Nonprofits</a
-                >
-              </h3>
-              <p>What I learned as a developer at Hack4Impact.</p>
-              <dl>
-                <dt>Date:</dt>
-                <dd><time datetime="2025-01">January 2025</time></dd>
-                <dt>Categories:</dt>
-                <dd>Computer Science, Experience</dd>
-              </dl>
-            </article>
-          </li>
-        </ul>
-      </section>
+      <div class="container">
+        <section>
+          <h2>All Posts</h2>
+          <ul>
+            <li>
+              <article data-category="methodology">
+                <h3>
+                  <a href="/writing/systematic-learning.html">
+                    Systematic Learning: From Track to Algorithms
+                    <svg class="icon">
+                      <use href="/icons/ui.svg#icon-arrow-right" />
+                    </svg>
+                  </a>
+                </h3>
+                <p>
+                  Breaking down triple jump technique taught me how to approach
+                  dynamic programming.
+                </p>
+                <dl>
+                  <dt>Date:</dt>
+                  <dd><time datetime="2025-01">January 2025</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Methodology, Computer Science</dd>
+                  <dt>Series:</dt>
+                  <dd>
+                    <a href="/series/learning-systems.html">Learning Systems</a>
+                  </dd>
+                </dl>
+              </article>
+            </li>
+            <li>
+              <article data-category="personal">
+                <h3>
+                  <a href="/writing/return-to-calpoly.html"
+                    >The Return to Cal Poly</a
+                  >
+                </h3>
+                <p>
+                  Dropped out in 2008. Back in 2024 with a different approach.
+                </p>
+                <dl>
+                  <dt>Date:</dt>
+                  <dd><time datetime="2024-12">December 2024</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Personal</dd>
+                  <dt>Series:</dt>
+                  <dd>
+                    <a href="/series/the-return.html">The Return</a> (Part 1 of
+                    series)
+                  </dd>
+                </dl>
+              </article>
+            </li>
+            <li>
+              <article data-category="cs">
+                <h3>
+                  <a href="/writing/hack4impact-experience.html"
+                    >Building for Nonprofits</a
+                  >
+                </h3>
+                <p>What I learned as a developer at Hack4Impact.</p>
+                <dl>
+                  <dt>Date:</dt>
+                  <dd><time datetime="2025-01">January 2025</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Computer Science, Experience</dd>
+                </dl>
+              </article>
+            </li>
+          </ul>
+        </section>
+      </div>
     </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

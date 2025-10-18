@@ -11,92 +11,136 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
   </head>
   <body>
-    <header>
-      <h1>Cadence Forge</h1>
-      <p>Systematic experimentation through rhythmic precision</p>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/writing.html">Writing</a></li>
-          <li><a href="/projects.html">Projects</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <nav>
+          <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <section>
-        <h2>Recent Writing</h2>
-        <ul>
-          <li>
-            <article>
-              <h3>
-                <a href="/writing/systematic-learning.html"
-                  >Systematic Learning: From Track to Algorithms</a
-                >
-              </h3>
-              <p>
-                Breaking down triple jump technique taught me how to approach
-                dynamic programming.
-              </p>
-              <p><time>January 2025</time></p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>
-                <a href="/writing/return-to-calpoly.html"
-                  >The Return to Cal Poly</a
-                >
-              </h3>
-              <p>
-                Dropped out in 2008. Back in 2024 with a different approach.
-              </p>
-              <p><time>December 2024</time></p>
-            </article>
-          </li>
-        </ul>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Cadence Forge</h1>
         <p>
-          <a href="/writing.html">
-            All writing
-            <svg class="icon">
-              <use href="/icons/ui.svg#icon-arrow-right" />
-            </svg>
-          </a>
+          Systematic experimentation through rhythmic precision. Essays on
+          computer science, methodology, and learning systems.
         </p>
-      </section>
+      </div>
+    </div>
 
-      <section>
-        <h2>Current Work</h2>
-        <ul>
-          <li>
-            <article>
-              <h3>
-                <a href="/projects/hispanic-business-assoc.html"
-                  >Hispanic Business Association Platform</a
-                >
-              </h3>
-              <p>
-                Web application for local business community. Hack4Impact
-                project.
-              </p>
-              <p>Next.js, TypeScript, MongoDB</p>
-            </article>
-          </li>
-        </ul>
-        <p>
-          <a href="/writing.html">
-            All writing
-            <svg class="icon">
-              <use href="/icons/ui.svg#icon-arrow-right" />
-            </svg>
-          </a>
-        </p>
-      </section>
+    <main>
+      <div class="container">
+        <section>
+          <h2>Recent Writing</h2>
+          <ul>
+            <li>
+              <article data-category="methodology">
+                <h3>
+                  <a href="/writing/systematic-learning.html"
+                    >Systematic Learning: From Track to Algorithms</a
+                  >
+                </h3>
+                <p>
+                  Breaking down triple jump technique taught me how to approach
+                  dynamic programming.
+                </p>
+                <time datetime="2025-01">January 2025</time>
+              </article>
+            </li>
+            <li>
+              <article data-category="personal">
+                <h3>
+                  <a href="/writing/return-to-calpoly.html"
+                    >The Return to Cal Poly</a
+                  >
+                </h3>
+                <p>
+                  Dropped out in 2008. Back in 2024 with a different approach.
+                </p>
+                <time datetime="2024-12">December 2024</time>
+              </article>
+            </li>
+          </ul>
+          <p>
+            <a href="/writing.html">
+              All writing
+              <svg class="icon">
+                <use href="/icons/ui.svg#icon-arrow-right" />
+              </svg>
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Current Work</h2>
+          <ul>
+            <li>
+              <article data-category="cs">
+                <h3>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </h3>
+                <p>
+                  Web application for local business community. Hack4Impact
+                  project.
+                </p>
+                <p>Next.js, TypeScript, MongoDB</p>
+              </article>
+            </li>
+          </ul>
+          <p>
+            <a href="/projects.html">
+              All projects
+              <svg class="icon">
+                <use href="/icons/ui.svg#icon-arrow-right" />
+              </svg>
+            </a>
+          </p>
+        </section>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
