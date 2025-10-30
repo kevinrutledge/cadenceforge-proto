@@ -5,6 +5,7 @@
   --brand-subtle: rgba(42, 96, 59, 0.1);
 
   --bg: #fffff8;
+  --bg-header: rgba(255, 255, 248, 0.95);
   --bg-secondary: #f5f5f5;
   --bg-elevated: #ffffff;
 
@@ -68,4 +69,27 @@
   --radius-full: 999px;
 
   --transition: 200ms ease;
+}
+
+body.dark-mode {
+  --bg: #1a1a1a;
+  --bg-header: rgba(26, 26, 26, 0.95);
+
+  --bg-secondary: #2a2a2a;
+  --bg-elevated: #252525;
+
+  --text: #e5e5e5;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #707070;
+
+  --border: #404040;
+  --border-hover: rgba(61, 122, 78, 0.5);
+
+  --brand: #3d7a4e;
+  --brand-dark: #4a8f5e;
+  --brand-light: #5aa36e;
+
+  --brand-subtle: rgba(61, 122, 78, 0.2);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
 }

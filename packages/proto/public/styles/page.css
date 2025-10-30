@@ -82,7 +82,7 @@ ul {
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 248, 0.95);
+  background: var(--bg-header);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
@@ -93,6 +93,12 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
 }
 
 .site-header .logo {
@@ -117,6 +123,35 @@ ul {
 .site-header nav a.active {
   color: var(--brand);
   opacity: 1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--brand);
+  background: var(--brand-subtle);
+}
+
+.theme-toggle .moon-icon {
+  display: none;
+}
+
+body.dark-mode .theme-toggle .sun-icon {
+  display: none;
+}
+
+body.dark-mode .theme-toggle .moon-icon {
+  display: block;
 }
 
 .page-hero {
