@@ -22,9 +22,9 @@
         <div class="header-right">
           <nav>
             <ul>
-              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="/writing.html">Writing</a></li>
-              <li><a href="/projects.html">Projects</a></li>
+              <li><a href="/projects.html" class="active">Projects</a></li>
               <li><a href="/about.html">About</a></li>
             </ul>
           </nav>
@@ -67,6 +67,11 @@
     <main>
       <div class="container">
         <article>
+          <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/projects.html">Projects</a> /
+            Hispanic Business Association
+          </div>
+
           <header>
             <h1>Hispanic Business Association Platform</h1>
             <p>Web application for local business community.</p>
@@ -234,18 +239,26 @@
       }
 
       if (button) {
-        button.onclick = () => {
+        button.onclick = (event) => {
           const isDark = document.body.classList.contains("dark-mode");
-
-          if (isDark) {
-            document.body.classList.remove("dark-mode");
-            localStorage.setItem("theme", "light");
-          } else {
-            document.body.classList.add("dark-mode");
-            localStorage.setItem("theme", "dark");
-          }
+          const customEvent = new CustomEvent("darkmode:toggle", {
+            bubbles: true,
+            detail: { checked: !isDark },
+          });
+          event.target.dispatchEvent(customEvent);
+          event.stopPropagation();
         };
       }
+
+      document.body.addEventListener("darkmode:toggle", (event) => {
+        if (event.detail.checked) {
+          document.body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
+        }
+      });
     </script>
   </body>
 </html>
