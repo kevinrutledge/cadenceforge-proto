@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadence Forge</title>
+    <title>Learning Systems Series - Cadence Forge</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,8 +22,8 @@
         <div class="header-right">
           <nav>
             <ul>
-              <li><a href="/" class="active">Home</a></li>
-              <li><a href="/writing.html">Writing</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/writing.html" class="active">Writing</a></li>
               <li><a href="/projects.html">Projects</a></li>
               <li><a href="/about.html">About</a></li>
             </ul>
@@ -64,89 +64,76 @@
       </div>
     </header>
 
-    <div class="page-hero">
-      <div class="container">
-        <h1>Cadence Forge</h1>
-        <p>
-          Systematic experimentation through rhythmic precision. Essays on
-          computer science, methodology, and learning systems.
-        </p>
-      </div>
-    </div>
-
     <main>
       <div class="container">
-        <section>
-          <h2>Recent Writing</h2>
-          <ul>
-            <li>
-              <article data-category="methodology">
-                <h3>
-                  <a href="/writing/systematic-learning.html"
-                    >Systematic Learning: From Track to Algorithms</a
-                  >
-                </h3>
-                <p>
-                  Breaking down triple jump technique taught me how to approach
-                  dynamic programming.
-                </p>
-                <time datetime="2025-01">January 2025</time>
-              </article>
-            </li>
-            <li>
-              <article data-category="personal">
-                <h3>
-                  <a href="/writing/return-to-calpoly.html"
-                    >The Return to Cal Poly</a
-                  >
-                </h3>
-                <p>
-                  Dropped out in 2008. Back in 2024 with a different approach.
-                </p>
-                <time datetime="2024-12">December 2024</time>
-              </article>
-            </li>
-          </ul>
-          <p>
-            <a href="/writing.html">
-              All writing
-              <svg class="icon">
-                <use href="/icons/ui.svg#icon-arrow-right" />
-              </svg>
-            </a>
-          </p>
-        </section>
+        <article>
+          <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/writing.html">Writing</a> /
+            Learning Systems
+          </div>
 
-        <section>
-          <h2>Current Work</h2>
-          <ul>
-            <li>
-              <article data-category="cs">
-                <h3>
-                  <a href="/projects/hispanic-business-assoc.html"
-                    >Hispanic Business Association Platform</a
+          <header>
+            <h1>Learning Systems</h1>
+            <p>
+              Applying athletic training methodology to computer science
+              education.
+            </p>
+
+            <dl>
+              <dt>Status:</dt>
+              <dd><span class="status-badge ongoing">In Progress</span></dd>
+
+              <dt>Posts:</dt>
+              <dd>3 planned, 1 published</dd>
+            </dl>
+          </header>
+
+          <section>
+            <h2>About This Series</h2>
+            <p>
+              I spent years training as a track athlete, learning how to break
+              down complex movements into drillable components. That same
+              systematic approach applies to learning algorithms, system design,
+              and technical concepts. This series explores how athletic
+              methodology translates to computer science education.
+            </p>
+          </section>
+
+          <section>
+            <h2>Posts in This Series</h2>
+            <ol>
+              <li>
+                <cf-article
+                  category="methodology"
+                  href="/writing/systematic-learning.html"
+                >
+                  <span slot="title"
+                    >Systematic Learning: From Track to Algorithms</span
                   >
-                </h3>
-                <p>
-                  Web application for local business community. Hack4Impact
-                  project.
-                </p>
-                <p>Next.js, TypeScript, MongoDB</p>
-              </article>
-            </li>
-          </ul>
-          <p>
-            <a href="/projects.html">
-              All projects
-              <svg class="icon">
-                <use href="/icons/ui.svg#icon-arrow-right" />
-              </svg>
-            </a>
-          </p>
-        </section>
+                  <span slot="description"
+                    >Breaking down triple jump technique taught me how to
+                    approach dynamic programming.</span
+                  >
+                  <time slot="metadata" datetime="2025-01">January 2025</time>
+                </cf-article>
+              </li>
+              <li>
+                <cf-article category="methodology">
+                  <span slot="title">Deliberate Practice in Code</span>
+                  <span slot="description">Coming soon</span>
+                </cf-article>
+              </li>
+              <li>
+                <cf-article category="methodology">
+                  <span slot="title">Iteration and Feedback Loops</span>
+                  <span slot="description">Coming soon</span>
+                </cf-article>
+              </li>
+            </ol>
+          </section>
+        </article>
       </div>
     </main>
-
     <footer class="site-footer">
       <div class="container">
         <div>
@@ -205,6 +192,15 @@
           document.body.classList.remove("dark-mode");
           localStorage.setItem("theme", "light");
         }
+      });
+    </script>
+
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { ArticleCardElement } from "/src/article-card.js";
+
+      define({
+        "cf-article": ArticleCardElement,
       });
     </script>
   </body>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website - Cadence Forge</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <div class="header-right">
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/writing.html">Writing</a></li>
+              <li><a href="/projects.html" class="active">Projects</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </nav>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <article>
+          <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/projects.html">Projects</a> /
+            Portfolio Website
+          </div>
+
+          <header>
+            <h1>Portfolio Website</h1>
+            <p>Personal portfolio built during Hack4Impact bootcamp.</p>
+
+            <dl>
+              <dt>Type:</dt>
+              <dd>
+                <a href="/projects.html?type=bootcamp">Bootcamp Project</a>
+              </dd>
+              <dt>Date:</dt>
+              <dd><time datetime="2024-09">September 2024</time></dd>
+              <dt>Tech Stack:</dt>
+              <dd>Next.js, TypeScript, MongoDB, GitHub Pages</dd>
+              <dt>Status:</dt>
+              <dd>Completed</dd>
+            </dl>
+          </header>
+
+          <section>
+            <h2>Context</h2>
+            <p>
+              Before getting assigned to a real nonprofit project, Hack4Impact
+              runs a bootcamp where new members learn the tech stack. The final
+              assignment was building a personal portfolio site. It needed a
+              welcome page, resume section, blog functionality, project
+              showcase, and contact form.
+            </p>
+            <p>
+              This was my first time using Next.js App Router or TypeScript. I'd
+              worked with React before, but not this specific setup. MongoDB was
+              new too.
+            </p>
+          </section>
+
+          <section>
+            <h2>What I Built</h2>
+
+            <h3>Welcome Page</h3>
+            <p>
+              Landing page with brief introduction and navigation to other
+              sections. Nothing fancy. Just needed to be functional and clear.
+            </p>
+
+            <h3>Resume Section</h3>
+            <p>
+              Education, work experience, skills. Static content pulled from a
+              data file. Could have made it dynamic with a CMS, but that seemed
+              like overengineering for a bootcamp project.
+            </p>
+
+            <h3>Blog Functionality</h3>
+            <p>
+              This is where MongoDB came in. Blog posts stored in the database
+              with basic CRUD operations. Could create, edit, and delete posts
+              through an admin interface. The blog itself just displayed them in
+              reverse chronological order.
+            </p>
+            <p>
+              The admin interface was behind authentication. Used NextAuth for
+              that. Worked fine for a bootcamp project, though I learned later
+              there are simpler approaches for portfolio sites.
+            </p>
+
+            <h3>Project Showcase</h3>
+            <p>
+              Grid of project cards with descriptions, tech stacks, and links.
+              Also pulled from MongoDB. Probably didn't need a database for this
+              either, but the bootcamp required demonstrating database
+              integration.
+            </p>
+
+            <h3>Contact Form</h3>
+            <p>
+              Form submissions sent to my email via an API route. Used
+              nodemailer. Spent more time debugging email delivery than I
+              expected. Learned about SPF records and DKIM signatures in the
+              process.
+            </p>
+          </section>
+
+          <section>
+            <h2>Deployment</h2>
+            <p>
+              Had to deploy to GitHub Pages as part of the bootcamp
+              requirements. This created some complications because GitHub Pages
+              is designed for static sites, not Next.js applications with API
+              routes and database connections.
+            </p>
+            <p>
+              Ended up exporting a static version for GitHub Pages and hosting
+              the API routes separately. Not ideal, but it met the assignment
+              requirements.
+            </p>
+          </section>
+
+          <section>
+            <h2>What I Learned</h2>
+            <p>
+              The technical skills were useful. Learning Next.js App Router,
+              TypeScript patterns, MongoDB integration. But the more valuable
+              lesson was about project scope.
+            </p>
+            <p>
+              A portfolio site doesn't need a database. Static generation with
+              markdown files would work better for blog posts. The admin
+              interface was unnecessary complexity. I built these things because
+              the bootcamp required demonstrating specific technologies, not
+              because the project needed them.
+            </p>
+            <p>
+              This matters when building actual applications. Technical
+              decisions should serve the project's needs, not demonstrate your
+              knowledge of particular tools. The Hispanic Business Association
+              project needed a database because the data was dynamic and needed
+              admin management. A personal portfolio usually doesn't.
+            </p>
+          </section>
+
+          <section>
+            <h2>Would I Build It Differently?</h2>
+            <p>
+              For a real portfolio site, yes. Static generation with MDX for
+              blog posts. No database. Simpler deployment. But for a bootcamp
+              learning project, the overengineering was fine. The point was
+              learning the tools, not building the perfect portfolio.
+            </p>
+            <p>
+              The project served its purpose. I learned the stack well enough to
+              contribute effectively to the Hispanic Business Association
+              platform. That was the goal.
+            </p>
+          </section>
+
+          <footer>
+            <nav>
+              <h3>Related</h3>
+              <ul>
+                <li>
+                  <a href="/writing/hack4impact-experience.html"
+                    >Building for Nonprofits</a
+                  >
+                </li>
+                <li>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      const button = document.querySelector(".theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      if (button) {
+        button.onclick = (event) => {
+          const isDark = document.body.classList.contains("dark-mode");
+          const customEvent = new CustomEvent("darkmode:toggle", {
+            bubbles: true,
+            detail: { checked: !isDark },
+          });
+          event.target.dispatchEvent(customEvent);
+          event.stopPropagation();
+        };
+      }
+
+      document.body.addEventListener("darkmode:toggle", (event) => {
+        if (event.detail.checked) {
+          document.body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

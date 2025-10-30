@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Writing - Cadence Forge</title>
+    <title>Projects - Cadence Forge</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,8 +23,8 @@
           <nav>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/writing.html" class="active">Writing</a></li>
-              <li><a href="/projects.html">Projects</a></li>
+              <li><a href="/writing.html">Writing</a></li>
+              <li><a href="/projects.html" class="active">Projects</a></li>
               <li><a href="/about.html">About</a></li>
             </ul>
           </nav>
@@ -66,81 +66,64 @@
 
     <div class="page-hero">
       <div class="container">
-        <div class="breadcrumb"><a href="/">Home</a> / Writing</div>
-        <h1>Writing</h1>
-        <p>Essays on systematic learning, computer science, and methodology.</p>
+        <div class="breadcrumb"><a href="/">Home</a> / Projects</div>
+        <h1>Projects</h1>
+        <p>
+          Web applications and development work from Hack4Impact and personal
+          exploration.
+        </p>
       </div>
     </div>
 
     <main>
       <div class="container">
         <section>
-          <h2>All Posts</h2>
+          <h2>All Projects</h2>
           <ul>
             <li>
-              <article data-category="methodology">
-                <h3>
-                  <a href="/writing/systematic-learning.html">
-                    Systematic Learning: From Track to Algorithms
-                    <svg class="icon">
-                      <use href="/icons/ui.svg#icon-arrow-right" />
-                    </svg>
-                  </a>
-                </h3>
-                <p>
-                  Breaking down triple jump technique taught me how to approach
-                  dynamic programming.
-                </p>
-                <dl>
-                  <dt>Date:</dt>
-                  <dd><time datetime="2025-01">January 2025</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Methodology, Computer Science</dd>
-                  <dt>Series:</dt>
+              <cf-article
+                category="cs"
+                href="/projects/hispanic-business-assoc.html"
+              >
+                <span slot="title">Hispanic Business Association Platform</span>
+                <span slot="description"
+                  >Web application for local business community. Admin approval
+                  workflows, membership management, business profiles.</span
+                >
+                <dl slot="metadata">
+                  <dt>Type:</dt>
                   <dd>
-                    <a href="/series/learning-systems.html">Learning Systems</a>
+                    <a href="/projects.html?type=hack4impact">Hack4Impact</a>
                   </dd>
+                  <dt>Role:</dt>
+                  <dd>Developer</dd>
+                  <dt>Stack:</dt>
+                  <dd>Next.js, TypeScript, MongoDB, AWS S3</dd>
+                  <dt>Status:</dt>
+                  <dd>Completed (Fall 2024)</dd>
                 </dl>
-              </article>
+              </cf-article>
             </li>
             <li>
-              <article data-category="personal">
-                <h3>
-                  <a href="/writing/return-to-calpoly.html"
-                    >The Return to Cal Poly</a
-                  >
-                </h3>
-                <p>
-                  Dropped out in 2008. Back in 2024 with a different approach.
-                </p>
-                <dl>
-                  <dt>Date:</dt>
-                  <dd><time datetime="2024-12">December 2024</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Personal</dd>
-                  <dt>Series:</dt>
+              <cf-article category="cs" href="/projects/portfolio-site.html">
+                <span slot="title">Portfolio Website</span>
+                <span slot="description"
+                  >Personal portfolio built during Hack4Impact bootcamp. Blog
+                  functionality, project showcase, resume section.</span
+                >
+                <dl slot="metadata">
+                  <dt>Type:</dt>
                   <dd>
-                    <a href="/series/the-return.html">The Return</a> (Part 1 of
-                    series)
+                    <a href="/projects.html?type=bootcamp">Bootcamp Project</a>
                   </dd>
+                  <dt>Role:</dt>
+                  <dd>Solo Developer</dd>
+                  <dt>Stack:</dt>
+                  <dd>Next.js, TypeScript, MongoDB</dd>
+                  <dt>Status:</dt>
+                  <dd>Completed (Fall 2024)</dd>
                 </dl>
-              </article>
-            </li>
-            <li>
-              <article data-category="cs">
-                <h3>
-                  <a href="/writing/hack4impact-experience.html"
-                    >Building for Nonprofits</a
-                  >
-                </h3>
-                <p>What I learned as a developer at Hack4Impact.</p>
-                <dl>
-                  <dt>Date:</dt>
-                  <dd><time datetime="2025-01">January 2025</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Computer Science, Experience</dd>
-                </dl>
-              </article>
+              </cf-article>
             </li>
           </ul>
         </section>
@@ -204,6 +187,15 @@
           document.body.classList.remove("dark-mode");
           localStorage.setItem("theme", "light");
         }
+      });
+    </script>
+
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { ArticleCardElement } from "/src/article-card.js";
+
+      define({
+        "cf-article": ArticleCardElement,
       });
     </script>
   </body>

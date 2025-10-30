@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building for Nonprofits - Cadence Forge</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo">Cadence Forge</a>
+        <div class="header-right">
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/writing.html" class="active">Writing</a></li>
+              <li><a href="/projects.html">Projects</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </nav>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <article>
+          <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/writing.html">Writing</a> /
+            Building for Nonprofits
+          </div>
+
+          <header>
+            <h1>Building for Nonprofits</h1>
+            <p>What I learned as a developer at Hack4Impact.</p>
+
+            <dl>
+              <dt>Published:</dt>
+
+              <dd><time datetime="2025-01">January 2025</time></dd>
+
+              <dt>Categories:</dt>
+              <dd>
+                <a href="/writing.html?category=cs">Computer Science</a>,
+                <a href="/writing.html?category=experience">Experience</a>
+              </dd>
+            </dl>
+          </header>
+
+          <section>
+            <h2>The Assignment</h2>
+            <p>
+              Fall 2024, first year back at Cal Poly. I joined Hack4Impact and
+              got assigned to build a web application for the Hispanic Business
+              Association. The stack was Next.js, TypeScript, MongoDB. I'd used
+              some of these before. Others were new.
+            </p>
+            <p>
+              The project had designated tech leads. They were learning how to
+              lead while also learning the stack. I was one of the developers.
+              But as the project went on, I found myself taking most of the
+              tickets and writing most of the code.
+            </p>
+          </section>
+
+          <section>
+            <h2>The Work</h2>
+            <p>
+              The Hispanic Business Association needed a system for managing
+              business profiles and membership. Businesses could update their
+              information. Admins could review and approve changes. Members
+              needed a way to find and connect with other businesses.
+            </p>
+            <p>
+              I built the admin approval system. Request cards, approval
+              workflows, email notifications. The business detail pages with
+              membership tracking. The API endpoints for updates and approvals.
+              AWS S3 integration for logo uploads. MongoDB schemas for request
+              history with TTL-based cleanup.
+            </p>
+            <p>
+              Each feature required understanding how the pieces connected.
+              Frontend forms to API routes to database updates to email
+              triggers. Then back through the same chain when the admin
+              responded.
+            </p>
+          </section>
+
+          <section>
+            <h2>What This Cost</h2>
+            <p>
+              I participated in all technical meetings to explain implementation
+              details. Answered questions about the codebase. Reviewed other
+              developers' work. Some of my classes dropped from A to B that
+              quarter because I prioritized the nonprofit project.
+            </p>
+            <p>
+              I could have done less. Let the project struggle more. Focused
+              only on my coursework. But the nonprofit was counting on us to
+              deliver something functional. That felt more important than the
+              difference between an A and a B in a class I was passing anyway.
+            </p>
+          </section>
+
+          <section>
+            <h2>Tech Lead Now</h2>
+            <p>
+              I'm a Tech Lead for this year's projects. Leading a team building
+              for a different nonprofit. The goal is to create an environment
+              where developers don't have to struggle with unclear direction or
+              figure everything out themselves.
+            </p>
+            <p>
+              I know what it's like to be on a team where the technical
+              leadership is still learning. It's fine—everyone has to learn
+              somewhere. But it means developers either step up or the project
+              suffers. I stepped up. Now I want to build something where that's
+              less necessary.
+            </p>
+          </section>
+
+          <section>
+            <h2>What Nonprofit Work Teaches</h2>
+            <p>
+              Real users with real needs. Actual deadlines. Code that someone
+              else will maintain. These constraints are different from
+              coursework or personal projects.
+            </p>
+            <p>
+              In coursework, you can cut corners because only the grade matters.
+              In personal projects, you can abandon things when they get boring.
+              With a nonprofit client, you commit to delivering something
+              functional. That changes how you approach technical decisions.
+            </p>
+            <p>
+              Also, explaining technical concepts to non-technical stakeholders
+              is its own skill. The Hispanic Business Association staff didn't
+              care about our MongoDB schemas or API architecture. They cared
+              whether businesses could update their profiles and admins could
+              approve changes. Learning to translate between technical
+              implementation and user-facing functionality matters more than I
+              expected.
+            </p>
+          </section>
+
+          <footer>
+            <nav>
+              <h3>Related</h3>
+              <ul>
+                <li>
+                  <a href="/projects/hispanic-business-assoc.html"
+                    >Hispanic Business Association Platform</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <h3>Cadence Forge</h3>
+          <p>Systematic experimentation through rhythmic precision.</p>
+        </div>
+        <div>
+          <h3>Content</h3>
+          <ul>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+            <li>
+              <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <span>© 2025 Kevin Rutledge</span>
+          <span>Built with purpose</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      const button = document.querySelector(".theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      if (button) {
+        button.onclick = (event) => {
+          const isDark = document.body.classList.contains("dark-mode");
+          const customEvent = new CustomEvent("darkmode:toggle", {
+            bubbles: true,
+            detail: { checked: !isDark },
+          });
+          event.target.dispatchEvent(customEvent);
+          event.stopPropagation();
+        };
+      }
+
+      document.body.addEventListener("darkmode:toggle", (event) => {
+        if (event.detail.checked) {
+          document.body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

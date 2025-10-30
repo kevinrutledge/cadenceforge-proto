@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Systems Series - Cadence Forge</title>
+    <title>Writing - Cadence Forge</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,73 +64,85 @@
       </div>
     </header>
 
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Writing</div>
+        <h1>Writing</h1>
+        <p>Essays on systematic learning, computer science, and methodology.</p>
+      </div>
+    </div>
+
     <main>
       <div class="container">
-        <article>
-          <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/writing.html">Writing</a> /
-            Learning Systems
-          </div>
-
-          <header>
-            <h1>Learning Systems</h1>
-            <p>
-              Applying athletic training methodology to computer science
-              education.
-            </p>
-
-            <dl>
-              <dt>Status:</dt>
-              <dd><span class="status-badge ongoing">In Progress</span></dd>
-
-              <dt>Posts:</dt>
-              <dd>3 planned, 1 published</dd>
-            </dl>
-          </header>
-
-          <section>
-            <h2>About This Series</h2>
-            <p>
-              I spent years training as a track athlete, learning how to break
-              down complex movements into drillable components. That same
-              systematic approach applies to learning algorithms, system design,
-              and technical concepts. This series explores how athletic
-              methodology translates to computer science education.
-            </p>
-          </section>
-
-          <section>
-            <h2>Posts in This Series</h2>
-            <ol>
-              <li>
-                <article data-category="methodology">
-                  <h3>
-                    <a href="/writing/systematic-learning.html"
-                      >Systematic Learning: From Track to Algorithms</a
-                    >
-                  </h3>
-                  <p>
-                    Breaking down triple jump technique taught me how to
-                    approach dynamic programming.
-                  </p>
-                  <p><time datetime="2025-01">January 2025</time></p>
-                </article>
-              </li>
-              <li>
-                <article data-category="methodology">
-                  <h3>Deliberate Practice in Code</h3>
-                  <p>Coming soon</p>
-                </article>
-              </li>
-              <li>
-                <article data-category="methodology">
-                  <h3>Iteration and Feedback Loops</h3>
-                  <p>Coming soon</p>
-                </article>
-              </li>
-            </ol>
-          </section>
-        </article>
+        <section>
+          <h2>All Posts</h2>
+          <ul>
+            <li>
+              <cf-article
+                category="methodology"
+                href="/writing/systematic-learning.html"
+              >
+                <span slot="title"
+                  >Systematic Learning: From Track to Algorithms</span
+                >
+                <span slot="description"
+                  >Breaking down triple jump technique taught me how to approach
+                  dynamic programming.</span
+                >
+                <dl slot="metadata">
+                  <dt>Date:</dt>
+                  <dd><time datetime="2025-01">January 2025</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Methodology, Computer Science</dd>
+                  <dt>Series:</dt>
+                  <dd>
+                    <a href="/series/learning-systems.html">Learning Systems</a>
+                  </dd>
+                </dl>
+              </cf-article>
+            </li>
+            <li>
+              <cf-article
+                category="personal"
+                href="/writing/return-to-calpoly.html"
+              >
+                <span slot="title">The Return to Cal Poly</span>
+                <span slot="description"
+                  >Dropped out in 2008. Back in 2024 with a different
+                  approach.</span
+                >
+                <dl slot="metadata">
+                  <dt>Date:</dt>
+                  <dd><time datetime="2024-12">December 2024</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Personal</dd>
+                  <dt>Series:</dt>
+                  <dd>
+                    <a href="/series/the-return.html">The Return</a> (Part 1 of
+                    series)
+                  </dd>
+                </dl>
+              </cf-article>
+            </li>
+            <li>
+              <cf-article
+                category="cs"
+                href="/writing/hack4impact-experience.html"
+              >
+                <span slot="title">Building for Nonprofits</span>
+                <span slot="description"
+                  >What I learned as a developer at Hack4Impact.</span
+                >
+                <dl slot="metadata">
+                  <dt>Date:</dt>
+                  <dd><time datetime="2025-01">January 2025</time></dd>
+                  <dt>Categories:</dt>
+                  <dd>Computer Science, Experience</dd>
+                </dl>
+              </cf-article>
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
     <footer class="site-footer">
@@ -191,6 +203,15 @@
           document.body.classList.remove("dark-mode");
           localStorage.setItem("theme", "light");
         }
+      });
+    </script>
+
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { ArticleCardElement } from "/src/article-card.js";
+
+      define({
+        "cf-article": ArticleCardElement,
       });
     </script>
   </body>
