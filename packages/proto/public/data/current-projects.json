@@ -1,0 +1,9 @@
+[
+  {
+    "category": "cs",
+    "href": "/projects/hispanic-business-assoc.html",
+    "title": "Hispanic Business Association Platform",
+    "description": "Web application for local business community. Hack4Impact project.",
+    "metadata": "Next.js, TypeScript, MongoDB"
+  }
+]

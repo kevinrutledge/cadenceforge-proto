@@ -101,35 +101,9 @@
 
           <section>
             <h2>Posts in This Series</h2>
-            <ol>
-              <li>
-                <cf-article
-                  category="methodology"
-                  href="/writing/systematic-learning.html"
-                >
-                  <span slot="title"
-                    >Systematic Learning: From Track to Algorithms</span
-                  >
-                  <span slot="description"
-                    >Breaking down triple jump technique taught me how to
-                    approach dynamic programming.</span
-                  >
-                  <time slot="metadata" datetime="2025-01">January 2025</time>
-                </cf-article>
-              </li>
-              <li>
-                <cf-article category="methodology">
-                  <span slot="title">Deliberate Practice in Code</span>
-                  <span slot="description">Coming soon</span>
-                </cf-article>
-              </li>
-              <li>
-                <cf-article category="methodology">
-                  <span slot="title">Iteration and Feedback Loops</span>
-                  <span slot="description">Coming soon</span>
-                </cf-article>
-              </li>
-            </ol>
+            <cf-series-posts
+              src="/data/series/learning-systems-posts.json"
+            ></cf-series-posts>
           </section>
         </article>
       </div>
@@ -198,9 +172,11 @@
     <script type="module">
       import { define } from "@calpoly/mustang";
       import { ArticleCardElement } from "/src/article-card.js";
+      import { SeriesPostsListElement } from "/src/series-posts-list.js";
 
       define({
         "cf-article": ArticleCardElement,
+        "cf-series-posts": SeriesPostsListElement,
       });
     </script>
   </body>

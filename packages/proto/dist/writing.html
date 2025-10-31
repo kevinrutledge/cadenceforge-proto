@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/writing-DD7NssZ7.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/article-card-B_gNvZxY.js">
+    <script type="module" crossorigin src="/assets/writing-BEQ4HY8d.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/article-card-hP1LAyQJ.js">
   </head>
   <body>
     <header class="site-header">
@@ -78,72 +78,7 @@
       <div class="container">
         <section>
           <h2>All Posts</h2>
-          <ul>
-            <li>
-              <cf-article
-                category="methodology"
-                href="/writing/systematic-learning.html"
-              >
-                <span slot="title"
-                  >Systematic Learning: From Track to Algorithms</span
-                >
-                <span slot="description"
-                  >Breaking down triple jump technique taught me how to approach
-                  dynamic programming.</span
-                >
-                <dl slot="metadata">
-                  <dt>Date:</dt>
-                  <dd><time datetime="2025-01">January 2025</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Methodology, Computer Science</dd>
-                  <dt>Series:</dt>
-                  <dd>
-                    <a href="/series/learning-systems.html">Learning Systems</a>
-                  </dd>
-                </dl>
-              </cf-article>
-            </li>
-            <li>
-              <cf-article
-                category="personal"
-                href="/writing/return-to-calpoly.html"
-              >
-                <span slot="title">The Return to Cal Poly</span>
-                <span slot="description"
-                  >Dropped out in 2008. Back in 2024 with a different
-                  approach.</span
-                >
-                <dl slot="metadata">
-                  <dt>Date:</dt>
-                  <dd><time datetime="2024-12">December 2024</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Personal</dd>
-                  <dt>Series:</dt>
-                  <dd>
-                    <a href="/series/the-return.html">The Return</a> (Part 1 of
-                    series)
-                  </dd>
-                </dl>
-              </cf-article>
-            </li>
-            <li>
-              <cf-article
-                category="cs"
-                href="/writing/hack4impact-experience.html"
-              >
-                <span slot="title">Building for Nonprofits</span>
-                <span slot="description"
-                  >What I learned as a developer at Hack4Impact.</span
-                >
-                <dl slot="metadata">
-                  <dt>Date:</dt>
-                  <dd><time datetime="2025-01">January 2025</time></dd>
-                  <dt>Categories:</dt>
-                  <dd>Computer Science, Experience</dd>
-                </dl>
-              </cf-article>
-            </li>
-          </ul>
+          <cf-all-writing src="/data/all-writing.json"></cf-all-writing>
         </section>
       </div>
     </main>

@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/main-DD7NssZ7.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/article-card-B_gNvZxY.js">
+    <script type="module" crossorigin src="/assets/main-BPDfzPCO.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/article-card-hP1LAyQJ.js">
   </head>
   <body>
     <header class="site-header">
@@ -80,36 +80,9 @@
       <div class="container">
         <section>
           <h2>Recent Writing</h2>
-          <ul>
-            <li>
-              <cf-article
-                category="methodology"
-                href="/writing/systematic-learning.html"
-              >
-                <span slot="title"
-                  >Systematic Learning: From Track to Algorithms</span
-                >
-                <span slot="description"
-                  >Breaking down triple jump technique taught me how to approach
-                  dynamic programming.</span
-                >
-                <time slot="metadata" datetime="2025-01">January 2025</time>
-              </cf-article>
-            </li>
-            <li>
-              <cf-article
-                category="personal"
-                href="/writing/return-to-calpoly.html"
-              >
-                <span slot="title">The Return to Cal Poly</span>
-                <span slot="description"
-                  >Dropped out in 2008. Back in 2024 with a different
-                  approach.</span
-                >
-                <time slot="metadata" datetime="2024-12">December 2024</time>
-              </cf-article>
-            </li>
-          </ul>
+          <cf-recent-writing
+            src="/data/recent-writing.json"
+          ></cf-recent-writing>
           <p>
             <a href="/writing.html">
               All writing
@@ -122,21 +95,9 @@
 
         <section>
           <h2>Current Work</h2>
-          <ul>
-            <li>
-              <cf-article
-                category="cs"
-                href="/projects/hispanic-business-assoc.html"
-              >
-                <span slot="title">Hispanic Business Association Platform</span>
-                <span slot="description"
-                  >Web application for local business community. Hack4Impact
-                  project.</span
-                >
-                <span slot="metadata">Next.js, TypeScript, MongoDB</span>
-              </cf-article>
-            </li>
-          </ul>
+          <cf-current-projects
+            src="/data/current-projects.json"
+          ></cf-current-projects>
           <p>
             <a href="/projects.html">
               All projects

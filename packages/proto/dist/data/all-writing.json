@@ -1,0 +1,35 @@
+[
+  {
+    "category": "methodology",
+    "href": "/writing/systematic-learning.html",
+    "title": "Systematic Learning: From Track to Algorithms",
+    "description": "Breaking down triple jump technique taught me how to approach dynamic programming.",
+    "date": "2025-01",
+    "categories": "Methodology, Computer Science",
+    "series": {
+      "name": "Learning Systems",
+      "href": "/series/learning-systems.html"
+    }
+  },
+  {
+    "category": "personal",
+    "href": "/writing/return-to-calpoly.html",
+    "title": "The Return to Cal Poly",
+    "description": "Dropped out in 2008. Back in 2024 with a different approach.",
+    "date": "2024-12",
+    "categories": "Personal",
+    "series": {
+      "name": "The Return",
+      "href": "/series/the-return.html",
+      "part": "Part 1 of series"
+    }
+  },
+  {
+    "category": "cs",
+    "href": "/writing/hack4impact-experience.html",
+    "title": "Building for Nonprofits",
+    "description": "What I learned as a developer at Hack4Impact.",
+    "date": "2025-01",
+    "categories": "Computer Science, Experience"
+  }
+]

@@ -99,21 +99,9 @@
           </section>
           <section>
             <h2>Posts in This Series</h2>
-            <ol>
-              <li>
-                <cf-article
-                  category="personal"
-                  href="/writing/return-to-calpoly.html"
-                >
-                  <span slot="title">The Return to Cal Poly</span>
-                  <span slot="description"
-                    >Dropped out in 2008. Back in 2024 with a different
-                    approach.</span
-                  >
-                  <time slot="metadata" datetime="2024-12">December 2024</time>
-                </cf-article>
-              </li>
-            </ol>
+            <cf-series-posts
+              src="/data/series/the-return-posts.json"
+            ></cf-series-posts>
           </section>
           <section>
             <h2>Upcoming</h2>
@@ -191,9 +179,11 @@
     <script type="module">
       import { define } from "@calpoly/mustang";
       import { ArticleCardElement } from "/src/article-card.js";
+      import { SeriesPostsListElement } from "/src/series-posts-list.js";
 
       define({
         "cf-article": ArticleCardElement,
+        "cf-series-posts": SeriesPostsListElement,
       });
     </script>
   </body>
