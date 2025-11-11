@@ -11,6 +11,8 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         writing: resolve(__dirname, "writing.html"),
         projects: resolve(__dirname, "projects.html"),
+        about: resolve(__dirname, "about.html"),
+        login: resolve(__dirname, "login.html"),
         learningSystems: resolve(__dirname, "series/learning-systems.html"),
         theReturn: resolve(__dirname, "series/the-return.html"),
       },

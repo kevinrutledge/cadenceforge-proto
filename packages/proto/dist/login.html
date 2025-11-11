@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - Cadence Forge</title>
+    <title>Login - Cadence Forge</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,10 +14,14 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/projects-xT2NdJEj.js"></script>
+    <style>
+      main article {
+        padding: var(--space-16) var(--space-8);
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/login-DxulIehe.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/state-BW_sjFeb.js">
     <link rel="modulepreload" crossorigin href="/assets/footer-DdD4gkgu.js">
-    <link rel="modulepreload" crossorigin href="/assets/article-card-CGWHAZbV.js">
   </head>
   <body>
     <mu-auth provides="cadenceforge:auth">
@@ -25,21 +29,20 @@
 
       <div class="page-hero">
         <div class="container">
-          <div class="breadcrumb"><a href="/">Home</a> / Projects</div>
-          <h1>Projects</h1>
-          <p>
-            Web applications and development work from Hack4Impact and personal
-            exploration.
-          </p>
+          <h1>Login</h1>
+          <p>Sign in to access your account</p>
         </div>
       </div>
 
       <main>
         <div class="container">
-          <section>
-            <h2>All Projects</h2>
-            <cf-all-projects src="/data/all-projects.json"></cf-all-projects>
-          </section>
+          <article>
+            <login-form api="/auth/login"></login-form>
+            <p style="text-align: center; margin-top: var(--space-6)">
+              Don't have an account?
+              <a href="/register.html">Sign up</a>
+            </p>
+          </article>
         </div>
       </main>
 

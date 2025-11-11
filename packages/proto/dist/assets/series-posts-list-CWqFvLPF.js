@@ -1,4 +1,4 @@
-import{r as l,i as d,x as n,n as h}from"./article-card-hP1LAyQJ.js";var f=Object.defineProperty,o=(s,t,e,p)=>{for(var r=void 0,a=s.length-1,i;a>=0;a--)(i=s[a])&&(r=i(t,e,r)||r);return r&&f(t,e,r),r};class c extends d{constructor(){super(...arguments),this.posts=[]}createRenderRoot(){return this}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}hydrate(t){fetch(t).then(e=>e.json()).then(e=>{e&&(this.posts=e)})}render(){return n`
+import{r as l,i as d,x as n,n as h}from"./state-BW_sjFeb.js";var f=Object.defineProperty,o=(s,t,e,p)=>{for(var r=void 0,a=s.length-1,i;a>=0;a--)(i=s[a])&&(r=i(t,e,r)||r);return r&&f(t,e,r),r};class c extends d{constructor(){super(...arguments),this.posts=[]}createRenderRoot(){return this}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}hydrate(t){fetch(t).then(e=>e.json()).then(e=>{e&&(this.posts=e)})}render(){return n`
       <ol>
         ${this.posts.map(t=>this.renderPost(t))}
       </ol>

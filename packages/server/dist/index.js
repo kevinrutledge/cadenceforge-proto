@@ -25,14 +25,16 @@ var import_express = __toESM(require("express"));
 var import_mongo = require("./services/mongo");
 var import_writing = __toESM(require("./routes/writing"));
 var import_projects = __toESM(require("./routes/projects"));
+var import_auth = __toESM(require("./routes/auth"));
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 (0, import_mongo.connect)("cadenceforge-proto");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
-app.use("/api/writing", import_writing.default);
-app.use("/api/projects", import_projects.default);
+app.use("/auth", import_auth.default);
+app.use("/api/writing", import_auth.authenticateUser, import_writing.default);
+app.use("/api/projects", import_auth.authenticateUser, import_projects.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });
