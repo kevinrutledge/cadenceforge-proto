@@ -1,4 +1,4 @@
-import{i as n,x as v,b as h,n as d}from"./state-BW_sjFeb.js";var p=Object.defineProperty,c=(t,l,s,g)=>{for(var r=void 0,e=t.length-1,i;e>=0;e--)(i=t[e])&&(r=i(l,s,r)||r);return r&&p(l,s,r),r};const o=class o extends n{render(){return v`
+import{i as n,x as v,b as h,n as d}from"./footer-B477tF5S.js";var p=Object.defineProperty,c=(t,l,s,g)=>{for(var r=void 0,e=t.length-1,i;e>=0;e--)(i=t[e])&&(r=i(l,s,r)||r);return r&&p(l,s,r),r};const o=class o extends n{render(){return v`
       <article data-category=${this.category||""}>
         <h3>
           <a href=${this.href||"#"}>

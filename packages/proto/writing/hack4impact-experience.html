@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/hack4impactExperience-BSWdGZWR.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/footer-B477tF5S.js">
   </head>
   <body>
     <mu-auth provides="cadenceforge:auth">
@@ -162,5 +160,16 @@
       <cf-footer></cf-footer>
     </mu-auth>
 
+    <script type="module">
+      import { define, Auth } from "@calpoly/mustang";
+      import { HeaderElement } from "/src/components/header.js";
+      import { FooterElement } from "/src/components/footer.js";
+
+      define({
+        "mu-auth": Auth.Provider,
+        "cf-header": HeaderElement,
+        "cf-footer": FooterElement,
+      });
+    </script>
   </body>
 </html>

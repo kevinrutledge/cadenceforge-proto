@@ -10,6 +10,14 @@ router.get("/", (_, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
+router.get("/series/:seriesName", (req: Request, res: Response) => {
+  const { seriesName } = req.params;
+
+  Writings.getBySeries(seriesName)
+    .then((list: Writing[]) => res.json(list))
+    .catch((err) => res.status(500).send(err));
+});
+
 router.get("/:title", (req: Request, res: Response) => {
   const { title } = req.params;
 

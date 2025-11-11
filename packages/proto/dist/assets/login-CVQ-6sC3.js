@@ -1,4 +1,4 @@
-import{i as h,x as m,b,r as p,n as c,d as l,a as f}from"./state-BW_sjFeb.js";import{F as v,H as g}from"./footer-DdD4gkgu.js";var x=Object.defineProperty,i=(d,e,r,s)=>{for(var t=void 0,o=d.length-1,u;o>=0;o--)(u=d[o])&&(t=u(e,r,t)||t);return t&&x(e,r,t),t};const n=class n extends h{constructor(){super(...arguments),this.formData={},this.redirect="/"}get canSubmit(){return!!(this.api&&this.formData.username&&this.formData.password)}render(){return m`
+import{i as h,x as b,b as l,r as p,n as c,d as m,F as f,H as v,a as g}from"./footer-B477tF5S.js";var x=Object.defineProperty,i=(d,e,r,s)=>{for(var t=void 0,o=d.length-1,u;o>=0;o--)(u=d[o])&&(t=u(e,r,t)||t);return t&&x(e,r,t),t};const n=class n extends h{constructor(){super(...arguments),this.formData={},this.redirect="/"}get canSubmit(){return!!(this.api&&this.formData.username&&this.formData.password)}render(){return b`
       <form
         @change=${e=>this.handleChange(e)}
         @submit=${e=>this.handleSubmit(e)}
@@ -19,7 +19,7 @@ import{i as h,x as m,b,r as p,n as c,d as l,a as f}from"./state-BW_sjFeb.js";imp
         <button ?disabled=${!this.canSubmit} type="submit">Login</button>
         <p class="error">${this.error}</p>
       </form>
-    `}handleChange(e){const r=e.target,s=r?.name,t=r?.value,o=this.formData;switch(s){case"username":this.formData={...o,username:t};break;case"password":this.formData={...o,password:t};break}}handleSubmit(e){e.preventDefault(),this.canSubmit&&fetch(this?.api||"",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(this.formData)}).then(r=>{if(r.status!==200)throw"Login failed";return r.json()}).then(r=>{const{token:s}=r,t=new CustomEvent("auth:message",{bubbles:!0,composed:!0,detail:["auth/signin",{token:s,redirect:this.redirect}]});this.dispatchEvent(t)}).catch(r=>{this.error=r.toString()})}};n.styles=b`
+    `}handleChange(e){const r=e.target,s=r?.name,t=r?.value,o=this.formData;switch(s){case"username":this.formData={...o,username:t};break;case"password":this.formData={...o,password:t};break}}handleSubmit(e){e.preventDefault(),this.canSubmit&&fetch(this?.api||"",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(this.formData)}).then(r=>{if(r.status!==200)throw"Login failed";return r.json()}).then(r=>{const{token:s}=r,t=new CustomEvent("auth:message",{bubbles:!0,composed:!0,detail:["auth/signin",{token:s,redirect:this.redirect}]});this.dispatchEvent(t)}).catch(r=>{this.error=r.toString()})}};n.styles=l`
     form {
       display: flex;
       flex-direction: column;
@@ -82,4 +82,4 @@ import{i as h,x as m,b,r as p,n as c,d as l,a as f}from"./state-BW_sjFeb.js";imp
       font-size: var(--text-sm);
       margin-top: var(--space-2);
     }
-  `;let a=n;i([p()],a.prototype,"formData");i([c()],a.prototype,"api");i([c()],a.prototype,"redirect");i([p()],a.prototype,"error");l({"mu-auth":f.Provider,"cf-header":g,"cf-footer":v,"login-form":a});
+  `;let a=n;i([p()],a.prototype,"formData");i([c()],a.prototype,"api");i([c()],a.prototype,"redirect");i([p()],a.prototype,"error");m({"mu-auth":g.Provider,"cf-header":v,"cf-footer":f,"login-form":a});

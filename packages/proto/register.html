@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Writing - Cadence Forge</title>
+    <title>Sign Up - Cadence Forge</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/writing-CqGp3Qix.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/footer-B477tF5S.js">
-    <link rel="modulepreload" crossorigin href="/assets/article-card-BdLq8se2.js">
+    <style>
+      main article {
+        padding: var(--space-16) var(--space-8);
+      }
+    </style>
   </head>
   <body>
     <mu-auth provides="cadenceforge:auth">
@@ -24,25 +26,38 @@
 
       <div class="page-hero">
         <div class="container">
-          <div class="breadcrumb"><a href="/">Home</a> / Writing</div>
-          <h1>Writing</h1>
-          <p>
-            Essays on systematic learning, computer science, and methodology.
-          </p>
+          <h1>Sign Up</h1>
+          <p>Create a new account</p>
         </div>
       </div>
 
       <main>
         <div class="container">
-          <section>
-            <h2>All Posts</h2>
-            <cf-all-writing src="/api/writing"></cf-all-writing>
-          </section>
+          <article>
+            <register-form api="/auth/register"></register-form>
+            <p style="text-align: center; margin-top: var(--space-6)">
+              Already have an account?
+              <a href="/login.html">Login</a>
+            </p>
+          </article>
         </div>
       </main>
 
       <cf-footer></cf-footer>
     </mu-auth>
 
+    <script type="module">
+      import { define, Auth } from "@calpoly/mustang";
+      import { HeaderElement } from "/src/components/header.js";
+      import { FooterElement } from "/src/components/footer.js";
+      import { RegisterFormElement } from "/src/auth/register-form.js";
+
+      define({
+        "mu-auth": Auth.Provider,
+        "cf-header": HeaderElement,
+        "cf-footer": FooterElement,
+        "register-form": RegisterFormElement,
+      });
+    </script>
   </body>
 </html>

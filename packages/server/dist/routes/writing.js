@@ -37,6 +37,10 @@ const router = import_express.default.Router();
 router.get("/", (_, res) => {
   import_writing_svc.default.index().then((list) => res.json(list)).catch((err) => res.status(500).send(err));
 });
+router.get("/series/:seriesName", (req, res) => {
+  const { seriesName } = req.params;
+  import_writing_svc.default.getBySeries(seriesName).then((list) => res.json(list)).catch((err) => res.status(500).send(err));
+});
 router.get("/:title", (req, res) => {
   const { title } = req.params;
   import_writing_svc.default.get(title).then((writing) => res.json(writing)).catch((err) => res.status(404).send(err));

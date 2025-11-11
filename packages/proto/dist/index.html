@@ -14,10 +14,9 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/main-QCxVmxCb.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/state-BW_sjFeb.js">
-    <link rel="modulepreload" crossorigin href="/assets/footer-DdD4gkgu.js">
-    <link rel="modulepreload" crossorigin href="/assets/article-card-CGWHAZbV.js">
+    <script type="module" crossorigin src="/assets/main-wsxREyQI.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/footer-B477tF5S.js">
+    <link rel="modulepreload" crossorigin href="/assets/article-card-BdLq8se2.js">
   </head>
   <body>
     <mu-auth provides="cadenceforge:auth">
@@ -38,7 +37,7 @@
           <section>
             <h2>Recent Writing</h2>
             <cf-recent-writing
-              src="/data/recent-writing.json"
+              src="/api/writing?limit=2&sort=date"
             ></cf-recent-writing>
             <p>
               <a href="/writing.html">
@@ -53,7 +52,7 @@
           <section>
             <h2>Current Work</h2>
             <cf-current-projects
-              src="/data/current-projects.json"
+              src="/api/projects?current=true"
             ></cf-current-projects>
             <p>
               <a href="/projects.html">
