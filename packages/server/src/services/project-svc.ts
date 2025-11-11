@@ -42,4 +42,24 @@ function get(title: string): Promise<Project> {
     });
 }
 
-export default { index, get };
+function create(json: Project): Promise<Project> {
+  const p = new ProjectModel(json);
+  return p.save();
+}
+
+function update(title: string, project: Project): Promise<Project> {
+  return ProjectModel.findOneAndUpdate({ title }, project, {
+    new: true,
+  }).then((updated) => {
+    if (!updated) throw `${title} not updated`;
+    else return updated as Project;
+  });
+}
+
+function remove(title: string): Promise<void> {
+  return ProjectModel.findOneAndDelete({ title }).then((deleted) => {
+    if (!deleted) throw `${title} not deleted`;
+  });
+}
+
+export default { index, get, create, update, remove };

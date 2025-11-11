@@ -57,4 +57,21 @@ function get(title) {
 function getBySeries(seriesName) {
   return WritingModel.find({ "series.name": seriesName });
 }
-var writing_svc_default = { index, get, getBySeries };
+function create(json) {
+  const w = new WritingModel(json);
+  return w.save();
+}
+function update(title, writing) {
+  return WritingModel.findOneAndUpdate({ title }, writing, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${title} not updated`;
+    else return updated;
+  });
+}
+function remove(title) {
+  return WritingModel.findOneAndDelete({ title }).then((deleted) => {
+    if (!deleted) throw `${title} not deleted`;
+  });
+}
+var writing_svc_default = { index, get, getBySeries, create, update, remove };

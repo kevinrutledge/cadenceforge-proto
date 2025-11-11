@@ -52,4 +52,21 @@ function get(title) {
     throw `${title} Not Found`;
   });
 }
-var project_svc_default = { index, get };
+function create(json) {
+  const p = new ProjectModel(json);
+  return p.save();
+}
+function update(title, project) {
+  return ProjectModel.findOneAndUpdate({ title }, project, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${title} not updated`;
+    else return updated;
+  });
+}
+function remove(title) {
+  return ProjectModel.findOneAndDelete({ title }).then((deleted) => {
+    if (!deleted) throw `${title} not deleted`;
+  });
+}
+var project_svc_default = { index, get, create, update, remove };
