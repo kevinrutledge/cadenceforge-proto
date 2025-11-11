@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "npx etsc",
+    "start": "npm run build && npm run start:node",
+    "start:node": "node dist/index.js",
+    "start:proto": "cross-env STATIC=../proto npm run start",
+    "check": "tsc --noEmit"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "cross-env": "^10.1.0",
+    "esbuild": "^0.27.0",
+    "esbuild-node-tsc": "^2.0.5",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.3"
+  }
+}
