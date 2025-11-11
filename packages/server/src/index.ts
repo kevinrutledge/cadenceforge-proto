@@ -6,7 +6,7 @@ import auth, { authenticateUser } from "./routes/auth";
 
 const app = express();
 const port = process.env.PORT || 3000;
-const staticDir = process.env.STATIC || "public";
+const staticDir = process.env.STATIC || "../proto/dist";
 
 connect("cadenceforge-proto");
 

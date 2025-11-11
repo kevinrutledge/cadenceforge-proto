@@ -28,7 +28,7 @@ var import_projects = __toESM(require("./routes/projects"));
 var import_auth = __toESM(require("./routes/auth"));
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
-const staticDir = process.env.STATIC || "public";
+const staticDir = process.env.STATIC || "../proto/dist";
 (0, import_mongo.connect)("cadenceforge-proto");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
