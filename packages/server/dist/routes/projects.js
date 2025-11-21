@@ -37,21 +37,21 @@ const router = import_express.default.Router();
 router.get("/", (_, res) => {
   import_project_svc.default.index().then((list) => res.json(list)).catch((err) => res.status(500).send(err));
 });
-router.get("/:title", (req, res) => {
-  const { title } = req.params;
-  import_project_svc.default.get(title).then((project) => res.json(project)).catch((err) => res.status(404).send(err));
+router.get("/:slug", (req, res) => {
+  const { slug } = req.params;
+  import_project_svc.default.get(slug).then((project) => res.json(project)).catch((err) => res.status(404).send(err));
 });
 router.post("/", (req, res) => {
   const newProject = req.body;
   import_project_svc.default.create(newProject).then((project) => res.status(201).json(project)).catch((err) => res.status(500).send(err));
 });
-router.put("/:title", (req, res) => {
-  const { title } = req.params;
+router.put("/:slug", (req, res) => {
+  const { slug } = req.params;
   const newProject = req.body;
-  import_project_svc.default.update(title, newProject).then((project) => res.json(project)).catch((err) => res.status(404).end());
+  import_project_svc.default.update(slug, newProject).then((project) => res.json(project)).catch((err) => res.status(404).end());
 });
-router.delete("/:title", (req, res) => {
-  const { title } = req.params;
-  import_project_svc.default.remove(title).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
+router.delete("/:slug", (req, res) => {
+  const { slug } = req.params;
+  import_project_svc.default.remove(slug).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
 });
 var projects_default = router;

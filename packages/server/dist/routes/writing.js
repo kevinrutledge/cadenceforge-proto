@@ -41,21 +41,21 @@ router.get("/series/:seriesName", (req, res) => {
   const { seriesName } = req.params;
   import_writing_svc.default.getBySeries(seriesName).then((list) => res.json(list)).catch((err) => res.status(500).send(err));
 });
-router.get("/:title", (req, res) => {
-  const { title } = req.params;
-  import_writing_svc.default.get(title).then((writing) => res.json(writing)).catch((err) => res.status(404).send(err));
+router.get("/:slug", (req, res) => {
+  const { slug } = req.params;
+  import_writing_svc.default.get(slug).then((writing) => res.json(writing)).catch((err) => res.status(404).send(err));
 });
 router.post("/", (req, res) => {
   const newWriting = req.body;
   import_writing_svc.default.create(newWriting).then((writing) => res.status(201).json(writing)).catch((err) => res.status(500).send(err));
 });
-router.put("/:title", (req, res) => {
-  const { title } = req.params;
+router.put("/:slug", (req, res) => {
+  const { slug } = req.params;
   const newWriting = req.body;
-  import_writing_svc.default.update(title, newWriting).then((writing) => res.json(writing)).catch((err) => res.status(404).end());
+  import_writing_svc.default.update(slug, newWriting).then((writing) => res.json(writing)).catch((err) => res.status(404).end());
 });
-router.delete("/:title", (req, res) => {
-  const { title } = req.params;
-  import_writing_svc.default.remove(title).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
+router.delete("/:slug", (req, res) => {
+  const { slug } = req.params;
+  import_writing_svc.default.remove(slug).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
 });
 var writing_default = router;

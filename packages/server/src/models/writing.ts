@@ -1,5 +1,6 @@
 export interface Writing {
   category: string;
+  slug: string;
   href?: string;
   title: string;
   description: string;

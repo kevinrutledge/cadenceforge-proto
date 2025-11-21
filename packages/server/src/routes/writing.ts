@@ -18,10 +18,10 @@ router.get("/series/:seriesName", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.get("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.get("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
 
-  Writings.get(title)
+  Writings.get(slug)
     .then((writing: Writing) => res.json(writing))
     .catch((err) => res.status(404).send(err));
 });
@@ -34,19 +34,19 @@ router.post("/", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.put("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.put("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
   const newWriting = req.body;
 
-  Writings.update(title, newWriting)
+  Writings.update(slug, newWriting)
     .then((writing: Writing) => res.json(writing))
     .catch((err) => res.status(404).end());
 });
 
-router.delete("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.delete("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
 
-  Writings.remove(title)
+  Writings.remove(slug)
     .then(() => res.status(204).end())
     .catch((err) => res.status(404).send(err));
 });

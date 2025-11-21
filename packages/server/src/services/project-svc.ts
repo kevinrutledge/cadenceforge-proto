@@ -4,6 +4,7 @@ import { Project } from "../models/project";
 const ProjectSchema = new Schema<Project>(
   {
     category: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
     href: { type: String },
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -34,12 +35,11 @@ function index(options?: QueryOptions): Promise<Project[]> {
   return ProjectModel.find();
 }
 
-function get(title: string): Promise<Project> {
-  return ProjectModel.find({ title })
-    .then((list) => list[0])
-    .catch((err) => {
-      throw `${title} Not Found`;
-    });
+function get(slug: string): Promise<Project> {
+  return ProjectModel.findOne({ slug }).then((project) => {
+    if (!project) throw `${slug} Not Found`;
+    return project;
+  });
 }
 
 function create(json: Project): Promise<Project> {
@@ -47,18 +47,18 @@ function create(json: Project): Promise<Project> {
   return p.save();
 }
 
-function update(title: string, project: Project): Promise<Project> {
-  return ProjectModel.findOneAndUpdate({ title }, project, {
+function update(slug: string, project: Project): Promise<Project> {
+  return ProjectModel.findOneAndUpdate({ slug }, project, {
     new: true,
   }).then((updated) => {
-    if (!updated) throw `${title} not updated`;
+    if (!updated) throw `${slug} not updated`;
     else return updated as Project;
   });
 }
 
-function remove(title: string): Promise<void> {
-  return ProjectModel.findOneAndDelete({ title }).then((deleted) => {
-    if (!deleted) throw `${title} not deleted`;
+function remove(slug: string): Promise<void> {
+  return ProjectModel.findOneAndDelete({ slug }).then((deleted) => {
+    if (!deleted) throw `${slug} not deleted`;
   });
 }
 

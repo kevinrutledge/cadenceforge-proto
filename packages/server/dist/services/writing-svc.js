@@ -25,6 +25,7 @@ var import_mongoose = require("mongoose");
 const WritingSchema = new import_mongoose.Schema(
   {
     category: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
     href: { type: String },
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -49,9 +50,10 @@ function index(options) {
   }
   return query;
 }
-function get(title) {
-  return WritingModel.find({ title }).then((list) => list[0]).catch((err) => {
-    throw `${title} Not Found`;
+function get(slug) {
+  return WritingModel.findOne({ slug }).then((writing) => {
+    if (!writing) throw `${slug} Not Found`;
+    return writing;
   });
 }
 function getBySeries(seriesName) {
@@ -61,17 +63,17 @@ function create(json) {
   const w = new WritingModel(json);
   return w.save();
 }
-function update(title, writing) {
-  return WritingModel.findOneAndUpdate({ title }, writing, {
+function update(slug, writing) {
+  return WritingModel.findOneAndUpdate({ slug }, writing, {
     new: true
   }).then((updated) => {
-    if (!updated) throw `${title} not updated`;
+    if (!updated) throw `${slug} not updated`;
     else return updated;
   });
 }
-function remove(title) {
-  return WritingModel.findOneAndDelete({ title }).then((deleted) => {
-    if (!deleted) throw `${title} not deleted`;
+function remove(slug) {
+  return WritingModel.findOneAndDelete({ slug }).then((deleted) => {
+    if (!deleted) throw `${slug} not deleted`;
   });
 }
 var writing_svc_default = { index, get, getBySeries, create, update, remove };

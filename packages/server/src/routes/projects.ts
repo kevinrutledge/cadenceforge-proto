@@ -10,10 +10,10 @@ router.get("/", (_, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.get("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.get("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
 
-  Projects.get(title)
+  Projects.get(slug)
     .then((project: Project) => res.json(project))
     .catch((err) => res.status(404).send(err));
 });
@@ -26,19 +26,19 @@ router.post("/", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.put("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.put("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
   const newProject = req.body;
 
-  Projects.update(title, newProject)
+  Projects.update(slug, newProject)
     .then((project: Project) => res.json(project))
     .catch((err) => res.status(404).end());
 });
 
-router.delete("/:title", (req: Request, res: Response) => {
-  const { title } = req.params;
+router.delete("/:slug", (req: Request, res: Response) => {
+  const { slug } = req.params;
 
-  Projects.remove(title)
+  Projects.remove(slug)
     .then(() => res.status(204).end())
     .catch((err) => res.status(404).send(err));
 });

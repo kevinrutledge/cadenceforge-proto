@@ -25,6 +25,7 @@ var import_mongoose = require("mongoose");
 const ProjectSchema = new import_mongoose.Schema(
   {
     category: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
     href: { type: String },
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -47,26 +48,27 @@ function index(options) {
   }
   return ProjectModel.find();
 }
-function get(title) {
-  return ProjectModel.find({ title }).then((list) => list[0]).catch((err) => {
-    throw `${title} Not Found`;
+function get(slug) {
+  return ProjectModel.findOne({ slug }).then((project) => {
+    if (!project) throw `${slug} Not Found`;
+    return project;
   });
 }
 function create(json) {
   const p = new ProjectModel(json);
   return p.save();
 }
-function update(title, project) {
-  return ProjectModel.findOneAndUpdate({ title }, project, {
+function update(slug, project) {
+  return ProjectModel.findOneAndUpdate({ slug }, project, {
     new: true
   }).then((updated) => {
-    if (!updated) throw `${title} not updated`;
+    if (!updated) throw `${slug} not updated`;
     else return updated;
   });
 }
-function remove(title) {
-  return ProjectModel.findOneAndDelete({ title }).then((deleted) => {
-    if (!deleted) throw `${title} not deleted`;
+function remove(slug) {
+  return ProjectModel.findOneAndDelete({ slug }).then((deleted) => {
+    if (!deleted) throw `${slug} not deleted`;
   });
 }
 var project_svc_default = { index, get, create, update, remove };
