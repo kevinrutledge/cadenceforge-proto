@@ -1,4 +1,4 @@
-import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./state-HKvb4smT.js";var _=Object.defineProperty,j=(a,e,r,o)=>{for(var t=void 0,s=a.length-1,n;s>=0;s--)(n=a[s])&&(t=n(e,r,t)||t);return t&&_(e,r,t),t};class g extends d{constructor(){super(...arguments),this.authenticated=!1,this._authObserver=new h(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(r=>{r.user&&r.user.authenticated?this.authenticated=!0:this.authenticated=!1}),localStorage.getItem("theme")==="dark"&&document.body.classList.add("dark-mode")}firstUpdated(){const e=this.querySelector(".theme-toggle");e&&e.addEventListener("click",()=>{document.body.classList.contains("dark-mode")?(document.body.classList.remove("dark-mode"),localStorage.setItem("theme","light")):(document.body.classList.add("dark-mode"),localStorage.setItem("theme","dark"))})}render(){return i`
+import{a as c,r as d,i as l,O as y,x as a,V as h,n as g,d as $,s as j,_ as k,h as C}from"./state-DnAmevJH.js";const P={};function x(s,e,t){const[n,r]=s;switch(n){case"writing/request":{const{slug:i}=r;return e.writing?.slug===i?e:[{...e,writing:{slug:i}},_(r,t).then(o=>["writing/load",{slug:i,writing:o}])]}case"writing/load":{const{writing:i}=r;return{...e,writing:i}}case"writing-list/request":return e.writingList?e:[e,L(t).then(i=>["writing-list/load",{writings:i}])];case"writing-list/load":{const{writings:i}=r;return{...e,writingList:i}}case"project/request":{const{slug:i}=r;return e.project?.slug===i?e:[{...e,project:{slug:i}},O(r,t).then(o=>["project/load",{slug:i,project:o}])]}case"project/load":{const{project:i}=r;return{...e,project:i}}case"projects-list/request":return e.projectsList?e:[e,S(t).then(i=>["projects-list/load",{projects:i}])];case"projects-list/load":{const{projects:i}=r;return{...e,projectsList:i}}default:{const i=n;throw new Error(`Unhandled message "${i}"`)}}}function _(s,e){return fetch(`/api/writing/${s.slug}`,{headers:c.headers(e)}).then(t=>{if(t.status===200)return t.json();throw new Error(`Failed to load writing: ${s.slug}`)}).then(t=>{if(t)return t;throw new Error("No JSON in response")})}function L(s){return fetch("/api/writing",{headers:c.headers(s)}).then(e=>{if(e.status===200)return e.json();throw new Error("Failed to load writing list")}).then(e=>{if(e)return e;throw new Error("No JSON in response")})}function O(s,e){return fetch(`/api/projects/${s.slug}`,{headers:c.headers(e)}).then(t=>{if(t.status===200)return t.json();throw new Error(`Failed to load project: ${s.slug}`)}).then(t=>{if(t)return t;throw new Error("No JSON in response")})}function S(s){return fetch("/api/projects",{headers:c.headers(s)}).then(e=>{if(e.status===200)return e.json();throw new Error("Failed to load projects list")}).then(e=>{if(e)return e;throw new Error("No JSON in response")})}var E=Object.defineProperty,D=(s,e,t,n)=>{for(var r=void 0,i=s.length-1,o;i>=0;i--)(o=s[i])&&(r=o(e,t,r)||r);return r&&E(e,t,r),r};class m extends l{constructor(){super(...arguments),this.authenticated=!1,this._authObserver=new y(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(t=>{t.user&&t.user.authenticated?this.authenticated=!0:this.authenticated=!1}),localStorage.getItem("theme")==="dark"&&document.body.classList.add("dark-mode")}firstUpdated(){const e=this.querySelector(".theme-toggle");e&&e.addEventListener("click",()=>{document.body.classList.contains("dark-mode")?(document.body.classList.remove("dark-mode"),localStorage.setItem("theme","light")):(document.body.classList.add("dark-mode"),localStorage.setItem("theme","dark"))})}render(){return a`
       <header class="site-header">
         <div class="container">
           <a href="/app" class="logo">Cadence Forge</a>
@@ -9,9 +9,9 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
                 <li><a href="/app/writing">Writing</a></li>
                 <li><a href="/app/projects">Projects</a></li>
                 <li><a href="/app/about">About</a></li>
-                ${this.authenticated?i`<li>
+                ${this.authenticated?a`<li>
                       <a href="#" @click=${this.handleSignOut}>Logout</a>
-                    </li>`:i`<li><a href="/login.html">Login</a></li>`}
+                    </li>`:a`<li><a href="/login.html">Login</a></li>`}
               </ul>
             </nav>
             <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -49,7 +49,37 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </div>
         </div>
       </header>
-    `}handleSignOut(e){e.preventDefault();const r=new CustomEvent("auth:message",{bubbles:!0,composed:!0,detail:["auth/signout"]});this.dispatchEvent(r)}createRenderRoot(){return this}}j([c()],g.prototype,"authenticated");class C extends d{render(){return i`
+    `}handleSignOut(e){e.preventDefault();const t=new CustomEvent("auth:message",{bubbles:!0,composed:!0,detail:["auth/signout"]});this.dispatchEvent(t)}createRenderRoot(){return this}}D([d()],m.prototype,"authenticated");class R extends l{render(){return a`
+      <footer class="site-footer">
+        <div class="container">
+          <div>
+            <h3>Cadence Forge</h3>
+            <p>Systematic experimentation through rhythmic precision.</p>
+          </div>
+          <div>
+            <h3>Content</h3>
+            <ul>
+              <li><a href="/app/writing">Writing</a></li>
+              <li><a href="/app/projects">Projects</a></li>
+              <li><a href="/app/about">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
+              <li>
+                <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-meta">
+            <span>© 2025 Kevin Rutledge</span>
+            <span>Built with purpose</span>
+          </div>
+        </div>
+      </footer>
+    `}createRenderRoot(){return this}}class I extends l{render(){return a`
       <div class="page-hero">
         <div class="container">
           <h1>Cadence Forge</h1>
@@ -87,7 +117,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </section>
         </div>
       </main>
-    `}createRenderRoot(){return this}}class x extends d{render(){return i`
+    `}createRenderRoot(){return this}}class W extends l{render(){return a`
       <div class="page-hero">
         <div class="container">
           <div class="breadcrumb"><a href="/app">Home</a> / About</div>
@@ -160,7 +190,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </article>
         </div>
       </main>
-    `}createRenderRoot(){return this}}var P=Object.defineProperty,D=(a,e,r,o)=>{for(var t=void 0,s=a.length-1,n;s>=0;s--)(n=a[s])&&(t=n(e,r,t)||t);return t&&P(e,r,t),t};class m extends d{constructor(){super(...arguments),this.writings=[],this._authObserver=new h(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(e=>{this._user=e.user,this._user?.authenticated&&this.loadData()})}get authorization(){return this._user?.authenticated?{Authorization:`Bearer ${this._user.token}`}:void 0}loadData(){fetch("/api/writing",{headers:this.authorization}).then(e=>{if(!e.ok)throw new Error(`Failed to fetch: ${e.status}`);return e.json()}).then(e=>{this.writings=e}).catch(e=>console.error("Error loading writing:",e))}render(){return i`
+    `}createRenderRoot(){return this}}var q=Object.defineProperty,F=Object.getOwnPropertyDescriptor,A=(s,e,t,n)=>{for(var r=F(e,t),i=s.length-1,o;i>=0;i--)(o=s[i])&&(r=o(e,t,r)||r);return r&&q(e,t,r),r};class v extends h{get writings(){return this.model.writingList||[]}constructor(){super("cadenceforge:model")}connectedCallback(){super.connectedCallback(),this.dispatchMessage(["writing-list/request"])}render(){return a`
       <div class="page-hero">
         <div class="container">
           <div class="breadcrumb"><a href="/app">Home</a> / Writing</div>
@@ -181,7 +211,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </section>
         </div>
       </main>
-    `}renderWriting(e){return i`
+    `}renderWriting(e){return a`
       <li>
         <article data-category=${e.category}>
           <h3>
@@ -189,7 +219,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </h3>
           <p>${e.description}</p>
           <dl>
-            ${e.date?i`
+            ${e.date?a`
                   <dt>Date:</dt>
                   <dd>
                     <time datetime=${e.date}
@@ -197,11 +227,11 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
                     >
                   </dd>
                 `:""}
-            ${e.categories?i`
+            ${e.categories?a`
                   <dt>Categories:</dt>
                   <dd>${e.categories}</dd>
                 `:""}
-            ${e.series?i`
+            ${e.series?a`
                   <dt>Series:</dt>
                   <dd>
                     <a href="/app/series/${e.series.name}"
@@ -213,7 +243,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </dl>
         </article>
       </li>
-    `}formatDate(e){return new Date(e).toLocaleDateString("en-US",{month:"long",year:"numeric"})}createRenderRoot(){return this}}D([c()],m.prototype,"writings");var E=Object.defineProperty,v=(a,e,r,o)=>{for(var t=void 0,s=a.length-1,n;s>=0;s--)(n=a[s])&&(t=n(e,r,t)||t);return t&&E(e,r,t),t};class l extends d{constructor(){super(...arguments),this._authObserver=new h(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(e=>{this._user=e.user,this._user?.authenticated&&this.slug&&this.loadData()})}attributeChangedCallback(e,r,o){super.attributeChangedCallback(e,r,o),e==="slug"&&r!==o&&o&&this._user?.authenticated&&this.loadData()}get authorization(){return this._user?.authenticated?{Authorization:`Bearer ${this._user.token}`}:void 0}loadData(){this.slug&&fetch(`/api/writing/${this.slug}`,{headers:this.authorization}).then(e=>{if(!e.ok)throw new Error(`Failed to fetch: ${e.status}`);return e.json()}).then(e=>{this.writing=e}).catch(e=>console.error("Error loading writing:",e))}render(){return this.writing?i`
+    `}formatDate(e){return new Date(e).toLocaleDateString("en-US",{month:"long",year:"numeric"})}createRenderRoot(){return this}}A([d()],v.prototype,"writings");var H=Object.defineProperty,T=Object.getOwnPropertyDescriptor,w=(s,e,t,n)=>{for(var r=n>1?void 0:n?T(e,t):e,i=s.length-1,o;i>=0;i--)(o=s[i])&&(r=(n?o(e,t,r):o(r))||r);return n&&r&&H(e,t,r),r};class p extends h{get writing(){return this.model.writing}constructor(){super("cadenceforge:model")}attributeChangedCallback(e,t,n){super.attributeChangedCallback(e,t,n),e==="slug"&&t!==n&&n&&this.dispatchMessage(["writing/request",{slug:n}])}render(){return!this.writing||!this.writing.title?a`<div class="container"><p>Loading...</p></div>`:a`
       <main>
         <div class="container">
           <article>
@@ -227,7 +257,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
               <p>${this.writing.description}</p>
 
               <dl>
-                ${this.writing.date?i`
+                ${this.writing.date?a`
                       <dt>Published:</dt>
                       <dd>
                         <time datetime=${this.writing.date}>
@@ -235,11 +265,11 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
                         </time>
                       </dd>
                     `:""}
-                ${this.writing.categories?i`
+                ${this.writing.categories?a`
                       <dt>Categories:</dt>
                       <dd>${this.writing.categories}</dd>
                     `:""}
-                ${this.writing.series?i`
+                ${this.writing.series?a`
                       <dt>Series:</dt>
                       <dd>
                         <a href="/app/series/${this.writing.series.name}">
@@ -263,7 +293,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </article>
         </div>
       </main>
-    `:i`<div class="container"><p>Loading...</p></div>`}formatDate(e){return new Date(e).toLocaleDateString("en-US",{month:"long",year:"numeric"})}createRenderRoot(){return this}}v([p()],l.prototype,"slug");v([c()],l.prototype,"writing");var S=Object.defineProperty,O=(a,e,r,o)=>{for(var t=void 0,s=a.length-1,n;s>=0;s--)(n=a[s])&&(t=n(e,r,t)||t);return t&&S(e,r,t),t};class f extends d{constructor(){super(...arguments),this.projects=[],this._authObserver=new h(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(e=>{this._user=e.user,this._user?.authenticated&&this.loadData()})}get authorization(){return this._user?.authenticated?{Authorization:`Bearer ${this._user.token}`}:void 0}loadData(){fetch("/api/projects",{headers:this.authorization}).then(e=>{if(!e.ok)throw new Error(`Failed to fetch: ${e.status}`);return e.json()}).then(e=>{this.projects=e}).catch(e=>console.error("Error loading projects:",e))}render(){return i`
+    `}formatDate(e){return new Date(e).toLocaleDateString("en-US",{month:"long",year:"numeric"})}createRenderRoot(){return this}}w([g()],p.prototype,"slug",2);w([d()],p.prototype,"writing",1);var N=Object.defineProperty,M=Object.getOwnPropertyDescriptor,G=(s,e,t,n)=>{for(var r=M(e,t),i=s.length-1,o;i>=0;i--)(o=s[i])&&(r=o(e,t,r)||r);return r&&N(e,t,r),r};class f extends h{get projects(){return this.model.projectsList||[]}constructor(){super("cadenceforge:model")}connectedCallback(){super.connectedCallback(),this.dispatchMessage(["projects-list/request"])}render(){return a`
       <div class="page-hero">
         <div class="container">
           <div class="breadcrumb"><a href="/app">Home</a> / Projects</div>
@@ -285,7 +315,7 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </section>
         </div>
       </main>
-    `}renderProject(e){return i`
+    `}renderProject(e){return a`
       <li>
         <article data-category=${e.category}>
           <h3>
@@ -293,26 +323,26 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </h3>
           <p>${e.description}</p>
           <dl>
-            ${e.type?i`
+            ${e.type?a`
                   <dt>Type:</dt>
                   <dd>${e.type.name}</dd>
                 `:""}
-            ${e.role?i`
+            ${e.role?a`
                   <dt>Role:</dt>
                   <dd>${e.role}</dd>
                 `:""}
-            ${e.stack?i`
+            ${e.stack?a`
                   <dt>Stack:</dt>
                   <dd>${e.stack}</dd>
                 `:""}
-            ${e.status?i`
+            ${e.status?a`
                   <dt>Status:</dt>
                   <dd>${e.status}</dd>
                 `:""}
           </dl>
         </article>
       </li>
-    `}createRenderRoot(){return this}}O([c()],f.prototype,"projects");var L=Object.defineProperty,w=(a,e,r,o)=>{for(var t=void 0,s=a.length-1,n;s>=0;s--)(n=a[s])&&(t=n(e,r,t)||t);return t&&L(e,r,t),t};class u extends d{constructor(){super(...arguments),this._authObserver=new h(this,"cadenceforge:auth")}connectedCallback(){super.connectedCallback(),this._authObserver.observe(e=>{this._user=e.user,this._user?.authenticated&&this.slug&&this.loadData()})}attributeChangedCallback(e,r,o){super.attributeChangedCallback(e,r,o),e==="slug"&&r!==o&&o&&this._user?.authenticated&&this.loadData()}get authorization(){return this._user?.authenticated?{Authorization:`Bearer ${this._user.token}`}:void 0}loadData(){this.slug&&fetch(`/api/projects/${this.slug}`,{headers:this.authorization}).then(e=>{if(!e.ok)throw new Error(`Failed to fetch: ${e.status}`);return e.json()}).then(e=>{this.project=e}).catch(e=>console.error("Error loading project:",e))}render(){return this.project?i`
+    `}createRenderRoot(){return this}}G([d()],f.prototype,"projects");var B=Object.defineProperty,J=Object.getOwnPropertyDescriptor,b=(s,e,t,n)=>{for(var r=n>1?void 0:n?J(e,t):e,i=s.length-1,o;i>=0;i--)(o=s[i])&&(r=(n?o(e,t,r):o(r))||r);return n&&r&&B(e,t,r),r};class u extends h{get project(){return this.model.project}constructor(){super("cadenceforge:model")}attributeChangedCallback(e,t,n){super.attributeChangedCallback(e,t,n),e==="slug"&&t!==n&&n&&this.dispatchMessage(["project/request",{slug:n}])}render(){return!this.project||!this.project.title?a`<div class="container"><p>Loading...</p></div>`:a`
       <main>
         <div class="container">
           <article>
@@ -326,19 +356,19 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
               <p>${this.project.description}</p>
 
               <dl>
-                ${this.project.type?i`
+                ${this.project.type?a`
                       <dt>Type:</dt>
                       <dd>${this.project.type.name}</dd>
                     `:""}
-                ${this.project.role?i`
+                ${this.project.role?a`
                       <dt>Role:</dt>
                       <dd>${this.project.role}</dd>
                     `:""}
-                ${this.project.stack?i`
+                ${this.project.stack?a`
                       <dt>Stack:</dt>
                       <dd>${this.project.stack}</dd>
                     `:""}
-                ${this.project.status?i`
+                ${this.project.status?a`
                       <dt>Status:</dt>
                       <dd>${this.project.status}</dd>
                     `:""}
@@ -357,8 +387,8 @@ import{r as c,i as d,O as h,x as i,n as p,d as b,_ as $,h as y,a as k}from"./sta
           </article>
         </div>
       </main>
-    `:i`<div class="container"><p>Loading...</p></div>`}createRenderRoot(){return this}}w([p()],u.prototype,"slug");w([c()],u.prototype,"project");const R=[{path:"/app/writing/:slug",view:a=>i`
-      <writing-view slug=${a.slug}></writing-view>
-    `},{path:"/app/writing",view:()=>i` <writing-list-view></writing-list-view> `},{path:"/app/projects/:slug",view:a=>i`
-      <project-view slug=${a.slug}></project-view>
-    `},{path:"/app/projects",view:()=>i` <projects-list-view></projects-list-view> `},{path:"/app/about",view:()=>i` <about-view></about-view> `},{path:"/app",view:()=>i` <home-view></home-view> `},{path:"/",redirect:"/app"}];b({"mu-auth":k.Provider,"mu-history":y.Provider,"mu-switch":class extends $.Element{constructor(){super(R,"cadenceforge:history","cadenceforge:auth")}},"cf-header":g,"home-view":C,"about-view":x,"writing-list-view":m,"writing-view":l,"projects-list-view":f,"project-view":u});
+    `}createRenderRoot(){return this}}b([g()],u.prototype,"slug",2);b([d()],u.prototype,"project",1);const U=[{path:"/app/writing/:slug",view:s=>a`
+      <writing-view slug=${s.slug}></writing-view>
+    `},{path:"/app/writing",view:()=>a` <writing-list-view></writing-list-view> `},{path:"/app/projects/:slug",view:s=>a`
+      <project-view slug=${s.slug}></project-view>
+    `},{path:"/app/projects",view:()=>a` <projects-list-view></projects-list-view> `},{path:"/app/about",view:()=>a` <about-view></about-view> `},{path:"/app",view:()=>a` <home-view></home-view> `},{path:"/",redirect:"/app"}];$({"mu-auth":c.Provider,"mu-history":C.Provider,"mu-switch":class extends k.Element{constructor(){super(U,"cadenceforge:history","cadenceforge:auth")}},"mu-store":class extends j.Provider{constructor(){super(x,P,"cadenceforge:auth")}},"cf-header":m,"cf-footer":R,"home-view":I,"about-view":W,"writing-list-view":v,"writing-view":p,"projects-list-view":f,"project-view":u});

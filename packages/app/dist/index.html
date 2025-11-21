@@ -14,16 +14,19 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module" crossorigin src="/assets/main-XP3Qh_2B.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/state-HKvb4smT.js">
+    <script type="module" crossorigin src="/assets/main-_OlsG1fQ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/state-DnAmevJH.js">
   </head>
   <body>
     <mu-history provides="cadenceforge:history" root="/app">
       <mu-auth provides="cadenceforge:auth" redirect="/login.html">
-        <article class="page">
-          <cf-header></cf-header>
-          <mu-switch></mu-switch>
-        </article>
+        <mu-store provides="cadenceforge:model">
+          <article class="page">
+            <cf-header></cf-header>
+            <mu-switch></mu-switch>
+            <cf-footer></cf-footer>
+          </article>
+        </mu-store>
       </mu-auth>
     </mu-history>
 

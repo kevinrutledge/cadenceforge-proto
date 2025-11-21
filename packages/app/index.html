@@ -18,11 +18,13 @@
   <body>
     <mu-history provides="cadenceforge:history" root="/app">
       <mu-auth provides="cadenceforge:auth" redirect="/login.html">
-        <article class="page">
-          <cf-header></cf-header>
-          <mu-switch></mu-switch>
-          <cf-footer></cf-footer>
-        </article>
+        <mu-store provides="cadenceforge:model">
+          <article class="page">
+            <cf-header></cf-header>
+            <mu-switch></mu-switch>
+            <cf-footer></cf-footer>
+          </article>
+        </mu-store>
       </mu-auth>
     </mu-history>
 

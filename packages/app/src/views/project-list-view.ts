@@ -1,60 +1,23 @@
-import { LitElement, html } from "lit";
+import { View } from "@calpoly/mustang";
+import { html } from "lit";
 import { state } from "lit/decorators.js";
-import { Observer } from "@calpoly/mustang";
-import { Auth } from "@calpoly/mustang";
+import { Project } from "server/models";
+import { Msg } from "../messages";
+import { Model } from "../model";
 
-interface Project {
-  category: string;
-  slug: string;
-  href?: string;
-  title: string;
-  description: string;
-  type?: {
-    name: string;
-    href: string;
-  };
-  role?: string;
-  stack?: string;
-  status?: string;
-}
-
-export class ProjectListViewElement extends LitElement {
+export class ProjectListViewElement extends View<Model, Msg> {
   @state()
-  projects: Project[] = [];
+  get projects(): Project[] {
+    return this.model.projectsList || [];
+  }
 
-  _authObserver = new Observer<Auth.Model>(this, "cadenceforge:auth");
-  _user?: Auth.User;
+  constructor() {
+    super("cadenceforge:model");
+  }
 
   connectedCallback() {
     super.connectedCallback();
-    this._authObserver.observe((auth: Auth.Model) => {
-      this._user = auth.user;
-      if (this._user?.authenticated) {
-        this.loadData();
-      }
-    });
-  }
-
-  get authorization() {
-    return this._user?.authenticated
-      ? {
-          Authorization: `Bearer ${
-            (this._user as Auth.AuthenticatedUser).token
-          }`,
-        }
-      : undefined;
-  }
-
-  loadData() {
-    fetch("/api/projects", { headers: this.authorization })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
-        return res.json();
-      })
-      .then((json: Project[]) => {
-        this.projects = json;
-      })
-      .catch((err) => console.error("Error loading projects:", err));
+    this.dispatchMessage(["projects-list/request"]);
   }
 
   render() {

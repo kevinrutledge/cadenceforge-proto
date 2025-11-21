@@ -1,5 +1,8 @@
-import { Auth, define, History, Switch } from "@calpoly/mustang";
+import { Auth, define, History, Switch, Store } from "@calpoly/mustang";
 import { html } from "lit";
+import { Msg } from "./messages";
+import { Model, init } from "./model";
+import update from "./update";
 import { HeaderElement } from "./components/header";
 import { FooterElement } from "./components/footer";
 import { HomeViewElement } from "./views/home-view";
@@ -50,6 +53,11 @@ define({
   "mu-switch": class AppSwitch extends Switch.Element {
     constructor() {
       super(routes, "cadenceforge:history", "cadenceforge:auth");
+    }
+  },
+  "mu-store": class AppStore extends Store.Provider<Model, Msg> {
+    constructor() {
+      super(update, init, "cadenceforge:auth");
     }
   },
   "cf-header": HeaderElement,

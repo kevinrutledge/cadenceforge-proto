@@ -1,80 +1,32 @@
-import { LitElement, html } from "lit";
+import { View } from "@calpoly/mustang";
+import { html } from "lit";
 import { property, state } from "lit/decorators.js";
-import { Observer } from "@calpoly/mustang";
-import { Auth } from "@calpoly/mustang";
+import { Project } from "server/models";
+import { Msg } from "../messages";
+import { Model } from "../model";
 
-interface Project {
-  category: string;
-  slug: string;
-  title: string;
-  description: string;
-  type?: {
-    name: string;
-    href: string;
-  };
-  role?: string;
-  stack?: string;
-  status?: string;
-}
-
-export class ProjectViewElement extends LitElement {
+export class ProjectViewElement extends View<Model, Msg> {
   @property()
   slug?: string;
 
   @state()
-  project?: Project;
+  get project(): Project | undefined {
+    return this.model.project;
+  }
 
-  _authObserver = new Observer<Auth.Model>(this, "cadenceforge:auth");
-  _user?: Auth.User;
-
-  connectedCallback() {
-    super.connectedCallback();
-    this._authObserver.observe((auth: Auth.Model) => {
-      this._user = auth.user;
-      if (this._user?.authenticated && this.slug) {
-        this.loadData();
-      }
-    });
+  constructor() {
+    super("cadenceforge:model");
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     super.attributeChangedCallback(name, oldValue, newValue);
-    if (
-      name === "slug" &&
-      oldValue !== newValue &&
-      newValue &&
-      this._user?.authenticated
-    ) {
-      this.loadData();
+    if (name === "slug" && oldValue !== newValue && newValue) {
+      this.dispatchMessage(["project/request", { slug: newValue }]);
     }
   }
 
-  get authorization() {
-    return this._user?.authenticated
-      ? {
-          Authorization: `Bearer ${
-            (this._user as Auth.AuthenticatedUser).token
-          }`,
-        }
-      : undefined;
-  }
-
-  loadData() {
-    if (!this.slug) return;
-
-    fetch(`/api/projects/${this.slug}`, { headers: this.authorization })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
-        return res.json();
-      })
-      .then((json: Project) => {
-        this.project = json;
-      })
-      .catch((err) => console.error("Error loading project:", err));
-  }
-
   render() {
-    if (!this.project) {
+    if (!this.project || !this.project.title) {
       return html`<div class="container"><p>Loading...</p></div>`;
     }
 
