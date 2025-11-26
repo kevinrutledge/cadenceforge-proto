@@ -9,10 +9,18 @@ import { HomeViewElement } from "./views/home-view";
 import { AboutViewElement } from "./views/about-view";
 import { WritingListViewElement } from "./views/writing-list-view";
 import { WritingViewElement } from "./views/writing-view";
+import { WritingEditElement } from "./views/writing-edit";
 import { ProjectListViewElement } from "./views/project-list-view";
 import { ProjectViewElement } from "./views/project-view";
+import { ProjectEditElement } from "./views/project-edit";
 
 const routes: Switch.Route[] = [
+  {
+    path: "/app/writing/:slug/edit",
+    view: (params: Switch.Params) => html`
+      <writing-edit slug=${params.slug}></writing-edit>
+    `,
+  },
   {
     path: "/app/writing/:slug",
     view: (params: Switch.Params) => html`
@@ -22,6 +30,12 @@ const routes: Switch.Route[] = [
   {
     path: "/app/writing",
     view: () => html` <writing-list-view></writing-list-view> `,
+  },
+  {
+    path: "/app/projects/:slug/edit",
+    view: (params: Switch.Params) => html`
+      <project-edit slug=${params.slug}></project-edit>
+    `,
   },
   {
     path: "/app/projects/:slug",
@@ -66,6 +80,8 @@ define({
   "about-view": AboutViewElement,
   "writing-list-view": WritingListViewElement,
   "writing-view": WritingViewElement,
+  "writing-edit": WritingEditElement,
   "projects-list-view": ProjectListViewElement,
   "project-view": ProjectViewElement,
+  "project-edit": ProjectEditElement,
 });

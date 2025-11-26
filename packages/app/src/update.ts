@@ -8,9 +8,30 @@ export default function update(
   model: Model,
   user: Auth.User
 ): Model | [Model, ...Promise<Msg>[]] {
-  const [command, payload] = message;
+  const [command, payload, callbacks] = message;
 
   switch (command) {
+    case "noop":
+      return model;
+
+    case "writing/save": {
+      const { slug, writing } = payload;
+      const { onSuccess, onFailure } = callbacks || {};
+
+      return [
+        model,
+        saveWriting(payload, user)
+          .then((savedWriting): Msg => {
+            if (onSuccess) onSuccess();
+            return ["writing/load", { slug, writing: savedWriting }];
+          })
+          .catch((error: Error): Msg => {
+            if (onFailure) onFailure(error);
+            return ["noop"];
+          }),
+      ];
+    }
+
     case "writing/request": {
       const { slug } = payload;
       if (model.writing?.slug === slug) return model;
@@ -53,6 +74,24 @@ export default function update(
         requestProject(payload, user).then(
           (project): Msg => ["project/load", { slug, project }]
         ),
+      ];
+    }
+
+    case "project/save": {
+      const { slug, project } = payload;
+      const { onSuccess, onFailure } = callbacks || {};
+
+      return [
+        model,
+        saveProject(payload, user)
+          .then((savedProject): Msg => {
+            if (onSuccess) onSuccess();
+            return ["project/load", { slug, project: savedProject }];
+          })
+          .catch((error: Error): Msg => {
+            if (onFailure) onFailure(error);
+            return ["noop"];
+          }),
       ];
     }
 
@@ -136,6 +175,50 @@ function requestProjectsList(user: Auth.User) {
     })
     .then((json: unknown) => {
       if (json) return json as Project[];
+      throw new Error("No JSON in response");
+    });
+}
+
+function saveWriting(
+  payload: { slug: string; writing: Writing },
+  user: Auth.User
+) {
+  return fetch(`/api/writing/${payload.slug}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      ...Auth.headers(user),
+    },
+    body: JSON.stringify(payload.writing),
+  })
+    .then((response: Response) => {
+      if (response.status === 200) return response.json();
+      throw new Error(`Failed to save writing: ${payload.slug}`);
+    })
+    .then((json: unknown) => {
+      if (json) return json as Writing;
+      throw new Error("No JSON in response");
+    });
+}
+
+function saveProject(
+  payload: { slug: string; project: Project },
+  user: Auth.User
+) {
+  return fetch(`/api/projects/${payload.slug}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      ...Auth.headers(user),
+    },
+    body: JSON.stringify(payload.project),
+  })
+    .then((response: Response) => {
+      if (response.status === 200) return response.json();
+      throw new Error(`Failed to save project: ${payload.slug}`);
+    })
+    .then((json: unknown) => {
+      if (json) return json as Project;
       throw new Error("No JSON in response");
     });
 }

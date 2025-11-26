@@ -74,15 +74,15 @@ export class WritingViewElement extends View<Model, Msg> {
                     `
                   : ""}
               </dl>
+
+              <p>
+                <a href="/app/writing/${this.writing.slug}/edit">Edit</a>
+              </p>
             </header>
 
             <section>
               <p>
                 Full article content will go here when we add it to the model.
-              </p>
-              <p>
-                For now, this demonstrates that the routing and data loading
-                work correctly.
               </p>
             </section>
           </article>
