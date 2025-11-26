@@ -1,4 +1,4 @@
-import { define, Form, View, History } from "@calpoly/mustang";
+import { define, Form, View, History, Observer, Auth } from "@calpoly/mustang";
 import { html } from "lit";
 import { property, state } from "lit/decorators.js";
 import { Writing } from "server/models";
@@ -18,8 +18,29 @@ export class WritingEditElement extends View<Model, Msg> {
     return this.model.writing;
   }
 
+  @state()
+  authenticated = false;
+
+  @state()
+  username = "";
+
+  _authObserver = new Observer<Auth.Model>(this, "cadenceforge:auth");
+
   constructor() {
     super("cadenceforge:model");
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._authObserver.observe((auth: Auth.Model) => {
+      if (auth.user && auth.user.authenticated) {
+        this.authenticated = true;
+        this.username = auth.user.username || "";
+      } else {
+        this.authenticated = false;
+        this.username = "";
+      }
+    });
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -30,24 +51,39 @@ export class WritingEditElement extends View<Model, Msg> {
   }
 
   render() {
+    if (!this.authenticated || this.username !== "kevin") {
+      return html`
+        <main>
+          <div class="container">
+            <p>Access denied. Only kevin can edit content.</p>
+            <p><a href="/app">Return home</a></p>
+          </div>
+        </main>
+      `;
+    }
+
     if (!this.writing || !this.writing.title) {
-      return html`<div class="container"><p>Loading...</p></div>`;
+      return html`
+        <main>
+          <div class="container">
+            <p>Loading...</p>
+          </div>
+        </main>
+      `;
     }
 
     return html`
       <main>
         <div class="container">
-          <article>
+          <article class="edit-form" data-category=${this.writing.category}>
             <div class="breadcrumb">
               <a href="/app">Home</a> / <a href="/app/writing">Writing</a> /
-              <a href="/app/writing/${this.writing.slug}"
-                >${this.writing.title}</a
-              >
+              <a href="/app/writing/${this.writing.slug}">${this.writing.title}</a>
               / Edit
             </div>
 
             <header>
-              <h1>Edit: ${this.writing.title}</h1>
+              <h1>Edit Writing</h1>
             </header>
 
             <mu-form .init=${this.writing} @mu-form:submit=${this.handleSubmit}>
@@ -58,21 +94,34 @@ export class WritingEditElement extends View<Model, Msg> {
 
               <label>
                 <span>Description</span>
-                <textarea name="description" rows="3"></textarea>
+                <textarea name="description" rows="4"></textarea>
               </label>
 
               <label>
-                <span>Date (YYYY-MM)</span>
-                <input name="date" />
+                <span>Date</span>
+                <input name="date" type="month" />
               </label>
 
               <label>
-                <span>Categories</span>
-                <input name="categories" />
+                <span>Category</span>
+                <select name="category">
+                  <option value="cs">Computer Science</option>
+                  <option value="philosophy">Philosophy</option>
+                  <option value="methodology">Methodology</option>
+                  <option value="culture">Culture</option>
+                  <option value="personal">Personal</option>
+                </select>
               </label>
 
-              <button type="submit">Save Changes</button>
-              <button type="button" @click=${this.handleCancel}>Cancel</button>
+              <label>
+                <span>Content (Markdown)</span>
+                <textarea name="content" rows="12" placeholder="Write your content in Markdown..."></textarea>
+              </label>
+
+              <div class="form-buttons" slot="submit">
+                <button type="submit">Save Changes</button>
+                <button type="button" @click=${this.handleCancel}>Cancel</button>
+              </div>
             </mu-form>
           </article>
         </div>

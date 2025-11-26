@@ -7,6 +7,9 @@ export class HeaderElement extends LitElement {
   @state()
   authenticated = false;
 
+  private lastScrollY = 0;
+  private headerEl: HTMLElement | null = null;
+
   _authObserver = new Observer<Auth.Model>(this, "cadenceforge:auth");
 
   connectedCallback() {
@@ -23,7 +26,36 @@ export class HeaderElement extends LitElement {
     if (savedTheme === "dark") {
       document.body.classList.add("dark-mode");
     }
+
+    window.addEventListener("scroll", this.handleScroll);
   }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  private handleScroll = () => {
+    if (!this.headerEl) {
+      this.headerEl = this.querySelector(".site-header");
+    }
+    if (!this.headerEl) return;
+
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < 50) {
+      // At top of page - always show
+      this.headerEl.classList.remove("header-hidden");
+    } else if (currentScrollY < this.lastScrollY) {
+      // Scrolling up - show header
+      this.headerEl.classList.remove("header-hidden");
+    } else {
+      // Scrolling down - hide header
+      this.headerEl.classList.add("header-hidden");
+    }
+
+    this.lastScrollY = currentScrollY;
+  };
 
   firstUpdated() {
     const button = this.querySelector(".theme-toggle");
@@ -45,11 +77,20 @@ export class HeaderElement extends LitElement {
     return html`
       <header class="site-header">
         <div class="container">
-          <a href="/app" class="logo">Cadence Forge</a>
+          <a href="/app" class="logo">
+            <svg class="logo-icon" width="24" height="24" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="8" fill="currentColor"/>
+              <path d="M 11.5 5 A 4.5 4.5 0 1 0 11.5 11"
+                    stroke="white"
+                    stroke-width="2.6"
+                    fill="none"
+                    stroke-linecap="square"/>
+            </svg>
+            <span>Cadence Forge</span>
+          </a>
           <div class="header-right">
             <nav>
               <ul>
-                <li><a href="/app">Home</a></li>
                 <li><a href="/app/writing">Writing</a></li>
                 <li><a href="/app/projects">Projects</a></li>
                 <li><a href="/app/about">About</a></li>

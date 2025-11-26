@@ -4,6 +4,7 @@ export interface Project {
   href?: string;
   title: string;
   description: string;
+  content?: string;
   type?: {
     name: string;
     href: string;

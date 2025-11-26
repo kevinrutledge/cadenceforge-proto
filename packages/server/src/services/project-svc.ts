@@ -8,6 +8,7 @@ const ProjectSchema = new Schema<Project>(
     href: { type: String },
     title: { type: String, required: true },
     description: { type: String, required: true },
+    content: { type: String },
     type: {
       name: String,
       href: String,

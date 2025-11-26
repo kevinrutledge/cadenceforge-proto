@@ -33,6 +33,7 @@ __export(projects_exports, {
 module.exports = __toCommonJS(projects_exports);
 var import_express = __toESM(require("express"));
 var import_project_svc = __toESM(require("../services/project-svc"));
+var import_auth = require("./auth");
 const router = import_express.default.Router();
 router.get("/", (_, res) => {
   import_project_svc.default.index().then((list) => res.json(list)).catch((err) => res.status(500).send(err));
@@ -41,16 +42,16 @@ router.get("/:slug", (req, res) => {
   const { slug } = req.params;
   import_project_svc.default.get(slug).then((project) => res.json(project)).catch((err) => res.status(404).send(err));
 });
-router.post("/", (req, res) => {
+router.post("/", import_auth.authenticateUser, (req, res) => {
   const newProject = req.body;
   import_project_svc.default.create(newProject).then((project) => res.status(201).json(project)).catch((err) => res.status(500).send(err));
 });
-router.put("/:slug", (req, res) => {
+router.put("/:slug", import_auth.authenticateUser, (req, res) => {
   const { slug } = req.params;
   const newProject = req.body;
   import_project_svc.default.update(slug, newProject).then((project) => res.json(project)).catch((err) => res.status(404).end());
 });
-router.delete("/:slug", (req, res) => {
+router.delete("/:slug", import_auth.authenticateUser, (req, res) => {
   const { slug } = req.params;
   import_project_svc.default.remove(slug).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
 });

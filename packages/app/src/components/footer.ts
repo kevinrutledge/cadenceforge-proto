@@ -5,30 +5,16 @@ export class FooterElement extends LitElement {
     return html`
       <footer class="site-footer">
         <div class="container">
-          <div>
-            <h3>Cadence Forge</h3>
-            <p>Systematic experimentation through rhythmic precision.</p>
-          </div>
-          <div>
-            <h3>Content</h3>
-            <ul>
-              <li><a href="/app/writing">Writing</a></li>
-              <li><a href="/app/projects">Projects</a></li>
-              <li><a href="/app/about">About</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3>Connect</h3>
-            <ul>
-              <li><a href="https://github.com/kevinrutledge">GitHub</a></li>
-              <li>
-                <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
-              </li>
-            </ul>
-          </div>
+          <nav>
+            <a href="/app/writing">Writing</a>
+            <a href="/app/projects">Projects</a>
+            <a href="/app/about">About</a>
+            <a href="https://github.com/kevinrutledge">GitHub</a>
+            <a href="https://linkedin.com/in/rutledge-kevin">LinkedIn</a>
+          </nav>
           <div class="footer-meta">
             <span>© 2025 Kevin Rutledge</span>
-            <span>Built with purpose</span>
+            <span>Lit, Mustang, MongoDB</span>
           </div>
         </div>
       </footer>

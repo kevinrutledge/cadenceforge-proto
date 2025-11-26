@@ -16,8 +16,8 @@ app.use(express.static(staticDir));
 app.use(express.json());
 
 app.use("/auth", auth);
-app.use("/api/writing", authenticateUser, writings);
-app.use("/api/projects", authenticateUser, projects);
+app.use("/api/writing", writings);
+app.use("/api/projects", projects);
 
 app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");

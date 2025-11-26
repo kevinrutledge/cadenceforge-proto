@@ -8,6 +8,7 @@ const WritingSchema = new Schema<Writing>(
     href: { type: String },
     title: { type: String, required: true },
     description: { type: String, required: true },
+    content: { type: String },
     date: { type: String },
     categories: { type: String },
     series: {

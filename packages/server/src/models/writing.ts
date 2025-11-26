@@ -4,6 +4,7 @@ export interface Writing {
   href?: string;
   title: string;
   description: string;
+  content?: string;
   date?: string;
   categories?: string;
   series?: {

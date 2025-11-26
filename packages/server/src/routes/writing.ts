@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { Writing } from "../models/writing";
 import Writings from "../services/writing-svc";
+import { authenticateUser } from "./auth";
 
 const router = express.Router();
 
@@ -26,7 +27,7 @@ router.get("/:slug", (req: Request, res: Response) => {
     .catch((err) => res.status(404).send(err));
 });
 
-router.post("/", (req: Request, res: Response) => {
+router.post("/", authenticateUser, (req: Request, res: Response) => {
   const newWriting = req.body;
 
   Writings.create(newWriting)
@@ -34,7 +35,7 @@ router.post("/", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.put("/:slug", (req: Request, res: Response) => {
+router.put("/:slug", authenticateUser, (req: Request, res: Response) => {
   const { slug } = req.params;
   const newWriting = req.body;
 
@@ -43,7 +44,7 @@ router.put("/:slug", (req: Request, res: Response) => {
     .catch((err) => res.status(404).end());
 });
 
-router.delete("/:slug", (req: Request, res: Response) => {
+router.delete("/:slug", authenticateUser, (req: Request, res: Response) => {
   const { slug } = req.params;
 
   Writings.remove(slug)

@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { Project } from "../models/project";
 import Projects from "../services/project-svc";
+import { authenticateUser } from "./auth";
 
 const router = express.Router();
 
@@ -18,7 +19,7 @@ router.get("/:slug", (req: Request, res: Response) => {
     .catch((err) => res.status(404).send(err));
 });
 
-router.post("/", (req: Request, res: Response) => {
+router.post("/", authenticateUser, (req: Request, res: Response) => {
   const newProject = req.body;
 
   Projects.create(newProject)
@@ -26,7 +27,7 @@ router.post("/", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.put("/:slug", (req: Request, res: Response) => {
+router.put("/:slug", authenticateUser, (req: Request, res: Response) => {
   const { slug } = req.params;
   const newProject = req.body;
 
@@ -35,7 +36,7 @@ router.put("/:slug", (req: Request, res: Response) => {
     .catch((err) => res.status(404).end());
 });
 
-router.delete("/:slug", (req: Request, res: Response) => {
+router.delete("/:slug", authenticateUser, (req: Request, res: Response) => {
   const { slug } = req.params;
 
   Projects.remove(slug)

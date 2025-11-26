@@ -35,8 +35,8 @@ const staticDir = process.env.STATIC || "../proto/dist";
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
 app.use("/auth", import_auth.default);
-app.use("/api/writing", import_auth.authenticateUser, import_writing.default);
-app.use("/api/projects", import_auth.authenticateUser, import_projects.default);
+app.use("/api/writing", import_writing.default);
+app.use("/api/projects", import_projects.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

@@ -33,6 +33,7 @@ __export(writing_exports, {
 module.exports = __toCommonJS(writing_exports);
 var import_express = __toESM(require("express"));
 var import_writing_svc = __toESM(require("../services/writing-svc"));
+var import_auth = require("./auth");
 const router = import_express.default.Router();
 router.get("/", (_, res) => {
   import_writing_svc.default.index().then((list) => res.json(list)).catch((err) => res.status(500).send(err));
@@ -45,16 +46,16 @@ router.get("/:slug", (req, res) => {
   const { slug } = req.params;
   import_writing_svc.default.get(slug).then((writing) => res.json(writing)).catch((err) => res.status(404).send(err));
 });
-router.post("/", (req, res) => {
+router.post("/", import_auth.authenticateUser, (req, res) => {
   const newWriting = req.body;
   import_writing_svc.default.create(newWriting).then((writing) => res.status(201).json(writing)).catch((err) => res.status(500).send(err));
 });
-router.put("/:slug", (req, res) => {
+router.put("/:slug", import_auth.authenticateUser, (req, res) => {
   const { slug } = req.params;
   const newWriting = req.body;
   import_writing_svc.default.update(slug, newWriting).then((writing) => res.json(writing)).catch((err) => res.status(404).end());
 });
-router.delete("/:slug", (req, res) => {
+router.delete("/:slug", import_auth.authenticateUser, (req, res) => {
   const { slug } = req.params;
   import_writing_svc.default.remove(slug).then(() => res.status(204).end()).catch((err) => res.status(404).send(err));
 });

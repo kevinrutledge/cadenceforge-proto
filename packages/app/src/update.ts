@@ -15,7 +15,7 @@ export default function update(
       return model;
 
     case "writing/save": {
-      const { slug, writing } = payload;
+      const { slug } = payload;
       const { onSuccess, onFailure } = callbacks || {};
 
       return [
@@ -78,7 +78,7 @@ export default function update(
     }
 
     case "project/save": {
-      const { slug, project } = payload;
+      const { slug } = payload;
       const { onSuccess, onFailure } = callbacks || {};
 
       return [

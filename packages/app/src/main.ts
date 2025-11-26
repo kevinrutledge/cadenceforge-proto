@@ -68,6 +68,9 @@ define({
     constructor() {
       super(routes, "cadenceforge:history", "cadenceforge:auth");
     }
+    createRenderRoot() {
+      return this;
+    }
   },
   "mu-store": class AppStore extends Store.Provider<Model, Msg> {
     constructor() {
