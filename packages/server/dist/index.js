@@ -30,7 +30,7 @@ var import_promises = __toESM(require("node:fs/promises"));
 var import_path = __toESM(require("path"));
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
-const staticDir = process.env.STATIC || "../proto/dist";
+const staticDir = process.env.STATIC || "../app/dist";
 (0, import_mongo.connect)("cadenceforge-proto");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
