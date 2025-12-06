@@ -86,7 +86,7 @@ export class ProjectEditElement extends View<Model, Msg> {
               <h1>Edit Project</h1>
             </header>
 
-            <mu-form .init=${this.project} @mu-form:submit=${this.handleSubmit}>
+            <mu-form .init=${this.project}>
               <label>
                 <span>Title</span>
                 <input name="title" />
@@ -132,7 +132,7 @@ export class ProjectEditElement extends View<Model, Msg> {
               </label>
 
               <div class="form-buttons" slot="submit">
-                <button type="submit">Save Changes</button>
+                <button type="button" @click=${this.handleSave}>Save Changes</button>
                 <button type="button" @click=${this.handleCancel}>Cancel</button>
               </div>
             </mu-form>
@@ -142,19 +142,23 @@ export class ProjectEditElement extends View<Model, Msg> {
     `;
   }
 
-  handleSubmit(event: Form.SubmitEvent<Project>) {
+  handleSave() {
+    const project: Partial<Project> = { ...this.project };
+    this.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
+      "input, textarea, select"
+    ).forEach((el) => {
+      if (el.name) (project as Record<string, string>)[el.name] = el.value;
+    });
+
     this.dispatchMessage([
       "project/save",
-      {
-        slug: this.slug!,
-        project: event.detail,
-      },
+      { slug: this.slug!, project: project as Project },
       {
         onSuccess: () =>
           History.dispatch(this, "history/navigate", {
             href: `/app/projects/${this.slug}`,
           }),
-        onFailure: (error: Error) => console.error("Save failed:", error),
+        onFailure: (err: Error) => console.error("Save failed:", err),
       },
     ]);
   }

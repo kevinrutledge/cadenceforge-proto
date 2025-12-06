@@ -86,7 +86,7 @@ export class WritingEditElement extends View<Model, Msg> {
               <h1>Edit Writing</h1>
             </header>
 
-            <mu-form .init=${this.writing} @mu-form:submit=${this.handleSubmit}>
+            <mu-form .init=${this.writing}>
               <label>
                 <span>Title</span>
                 <input name="title" />
@@ -119,7 +119,7 @@ export class WritingEditElement extends View<Model, Msg> {
               </label>
 
               <div class="form-buttons" slot="submit">
-                <button type="submit">Save Changes</button>
+                <button type="button" @click=${this.handleSave}>Save Changes</button>
                 <button type="button" @click=${this.handleCancel}>Cancel</button>
               </div>
             </mu-form>
@@ -129,19 +129,23 @@ export class WritingEditElement extends View<Model, Msg> {
     `;
   }
 
-  handleSubmit(event: Form.SubmitEvent<Writing>) {
+  handleSave() {
+    const writing: Partial<Writing> = { ...this.writing };
+    this.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
+      "input, textarea, select"
+    ).forEach((el) => {
+      if (el.name) (writing as Record<string, string>)[el.name] = el.value;
+    });
+
     this.dispatchMessage([
       "writing/save",
-      {
-        slug: this.slug!,
-        writing: event.detail,
-      },
+      { slug: this.slug!, writing: writing as Writing },
       {
         onSuccess: () =>
           History.dispatch(this, "history/navigate", {
             href: `/app/writing/${this.slug}`,
           }),
-        onFailure: (error: Error) => console.error("Save failed:", error),
+        onFailure: (err: Error) => console.error("Save failed:", err),
       },
     ]);
   }
